@@ -33,5 +33,4 @@ build/
 tools/codegen-dart/out/manifest/*
 tools/codegen-dart/target/**/*
 tools/codegen-dart/src/tests/**/*
-tools/codegen-dart/manifest
 tools/include
