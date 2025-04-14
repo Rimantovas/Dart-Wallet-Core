@@ -1,0 +1,37 @@
+PODS:
+  - dart_wallet_core_platform (0.0.1):
+    - FlutterMacOS
+    - TrustWalletCore (= 4.3.1)
+  - FlutterMacOS (1.0.0)
+  - TrustWalletCore (4.3.1):
+    - TrustWalletCore/Core (= 4.3.1)
+  - TrustWalletCore/Core (4.3.1):
+    - TrustWalletCore/Types
+  - TrustWalletCore/Types (4.3.1):
+    - WalletCoreSwiftProtobuf
+  - WalletCoreSwiftProtobuf (1.29.0)
+
+DEPENDENCIES:
+  - dart_wallet_core_platform (from `Flutter/ephemeral/.symlinks/plugins/dart_wallet_core_platform/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+
+SPEC REPOS:
+  trunk:
+    - TrustWalletCore
+    - WalletCoreSwiftProtobuf
+
+EXTERNAL SOURCES:
+  dart_wallet_core_platform:
+    :path: Flutter/ephemeral/.symlinks/plugins/dart_wallet_core_platform/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+
+SPEC CHECKSUMS:
+  dart_wallet_core_platform: e9f854a701ed0d8e13369f06f8a0440e4502a780
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+  TrustWalletCore: 16e12db027c24cd2f5b3a4ce3aff9c01d1ab43bf
+  WalletCoreSwiftProtobuf: a4798576a2d309511fc45f81843d348732ec571d
+
+PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
+
+COCOAPODS: 1.16.2

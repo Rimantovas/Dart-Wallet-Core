@@ -1,0 +1,36 @@
+name: dart_wallet_core
+description: "A new Flutter package project."
+version: 0.0.1
+homepage: "https://example.com"
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dart_wallet_core_codegen:
+    path: ../dart_wallet_core_codegen
+  dart_wallet_core_platform:
+    path: ../dart_wallet_core_platform
+  collection: ^1.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  path: ^1.9.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: dart_wallet_core_platform
+      ios:
+        default_package: dart_wallet_core_platform
+      macos:
+        default_package: dart_wallet_core_platform
+      windows:
+        default_package: dart_wallet_core_platform

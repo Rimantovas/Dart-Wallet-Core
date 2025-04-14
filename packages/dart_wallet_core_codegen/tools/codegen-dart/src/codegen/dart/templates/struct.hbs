@@ -1,0 +1,38 @@
+{{#if is_public}}{{/if}}class {{name}} {{#if superclasses}}extends {{#each superclasses}}{{this}}{{#unless @last}}, {{/unless}}{{/each}} {{/if}}{
+    {{#if init_instance}}
+    final Pointer<TW{{name}}> rawValue;
+
+    {{name}}(this.rawValue);
+    {{else}}
+    {{name}}();
+    {{/if}}
+
+    {{#if eq_operator}}
+    @override
+    bool operator ==(Object other) {
+        if (identical(this, other)) return true;
+        return other is {{name}} && WalletCore.wcb.{{eq_operator.c_ffi_name}}(rawValue, other.rawValue);
+    }
+
+    @override
+    int get hashCode => rawValue.hashCode;
+    {{/if}}
+
+    {{#each inits}}
+    {{~> partial_init}}
+    {{/each}}
+
+    {{#each deinits}}
+    void deinit() {
+        WalletCore.wcb.{{name}}(rawValue);
+    }
+    {{/each}}
+
+    {{#each methods}}
+    {{~> partial_func}}
+    {{/each}}
+
+    {{#each properties}}
+    {{~> partial_prop}}
+    {{/each}}
+}
