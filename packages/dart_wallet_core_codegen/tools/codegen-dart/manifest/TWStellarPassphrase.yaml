@@ -7,7 +7,5 @@ enums:
   variants:
   - name: stellar
     value: 0
-    as_string: Public Global Stellar Network ; September 2015
   - name: kin
-    value: 1
-    as_string: Kin Mainnet ; December 2018
+    value: 0

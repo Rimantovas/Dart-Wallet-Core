@@ -1,0 +1,62 @@
+name: TWTONWallet
+structs:
+- name: TWTONWallet
+  is_public: true
+  is_class: false
+functions:
+- name: TWTONWalletBuildV4R2StateInit
+  is_public: true
+  is_static: true
+  params:
+  - name: publicKey
+    type:
+      variant: struct
+      value: TWPublicKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: workchain
+    type:
+      variant: int32_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: walletId
+    type:
+      variant: int32_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWTONWalletBuildV5R1StateInit
+  is_public: true
+  is_static: true
+  params:
+  - name: publicKey
+    type:
+      variant: struct
+      value: TWPublicKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: workchain
+    type:
+      variant: int32_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: walletId
+    type:
+      variant: int32_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true

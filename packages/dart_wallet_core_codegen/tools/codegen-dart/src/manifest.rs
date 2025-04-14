@@ -235,7 +235,7 @@ pub struct EnumInfo {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EnumVariantInfo {
     pub name: String,
-    pub value: String,
+    pub value: i64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub as_string: Option<String>,
 }

@@ -1,7 +1,7 @@
 name: TWBitcoinAddress
 structs:
 - name: TWPublicKey
-  is_public: false
+  is_public: true
   is_class: false
 - name: TWBitcoinAddress
   is_public: true
@@ -9,7 +9,7 @@ structs:
 inits:
 - name: TWBitcoinAddressCreateWithString
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: string
     type:
@@ -19,7 +19,7 @@ inits:
       is_pointer: true
 - name: TWBitcoinAddressCreateWithData
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: data
     type:
@@ -29,7 +29,7 @@ inits:
       is_pointer: true
 - name: TWBitcoinAddressCreateWithPublicKey
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: publicKey
     type:

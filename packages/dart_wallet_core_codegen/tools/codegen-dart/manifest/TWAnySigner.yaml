@@ -1,0 +1,5 @@
+name: TWAnySigner
+structs:
+- name: TWAnySigner
+  is_public: true
+  is_class: false

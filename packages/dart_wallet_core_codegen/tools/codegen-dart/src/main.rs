@@ -40,15 +40,15 @@ fn create_manifest() -> Result<()> {
     let headers = libparser::grammar::parse_headers(&path).expect("Failed to parse path");
     let file_infos = libparser::manifest::process_c_header_dir(&headers);
 
-    std::fs::create_dir_all("out/manifest/").unwrap();
+    std::fs::create_dir_all("manifest/").unwrap();
 
     for file_info in file_infos {
-        let file_path = format!("out/manifest/{}.yaml", file_info.name);
+        let file_path = format!("manifest/{}.yaml", file_info.name);
         let yaml = serde_yaml::to_string(&file_info).unwrap();
         std::fs::write(&file_path, yaml.as_bytes()).unwrap();
     }
 
-    println!("Created manifest in out/manifest/!");
+    println!("Created manifest in manifest/!");
     Ok(())
 }
 

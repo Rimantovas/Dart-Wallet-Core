@@ -1,0 +1,113 @@
+name: TWString
+inits:
+- name: TWStringCreateWithUTF8Bytes
+  is_public: true
+  is_nullable: false
+  params:
+  - name: bytes
+    type:
+      variant: char
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+- name: TWStringCreateWithRawBytes
+  is_public: true
+  is_nullable: false
+  params:
+  - name: bytes
+    type:
+      variant: u_int8_t
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: size
+    type:
+      variant: size_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+- name: TWStringCreateWithHexData
+  is_public: true
+  is_nullable: false
+  params:
+  - name: data
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+deinits:
+- name: TWStringDelete
+functions:
+- name: TWStringSize
+  is_public: false
+  is_static: false
+  params:
+  - name: string
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: size_t
+    is_constant: false
+    is_nullable: false
+    is_pointer: false
+- name: TWStringGet
+  is_public: false
+  is_static: false
+  params:
+  - name: string
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: index
+    type:
+      variant: size_t
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  return_type:
+    variant: char
+    is_constant: false
+    is_nullable: false
+    is_pointer: false
+- name: TWStringUTF8Bytes
+  is_public: false
+  is_static: false
+  params:
+  - name: string
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: char
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWStringEqual
+  is_public: false
+  is_static: false
+  params:
+  - name: lhs
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: rhs
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: bool
+    is_constant: false
+    is_nullable: false
+    is_pointer: false

@@ -11,5 +11,7 @@ enums:
     value: 49
   - name: bip84
     value: 84
+  - name: bip86
+    value: 86
   - name: bip1852
     value: 1852

@@ -6,7 +6,7 @@ structs:
 inits:
 - name: TWHDWalletCreate
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: strength
     type:
@@ -22,7 +22,7 @@ inits:
       is_pointer: true
 - name: TWHDWalletCreateWithMnemonic
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: mnemonic
     type:
@@ -38,7 +38,7 @@ inits:
       is_pointer: true
 - name: TWHDWalletCreateWithMnemonicCheck
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: mnemonic
     type:
@@ -60,7 +60,7 @@ inits:
       is_pointer: false
 - name: TWHDWalletCreateWithEntropy
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: entropy
     type:

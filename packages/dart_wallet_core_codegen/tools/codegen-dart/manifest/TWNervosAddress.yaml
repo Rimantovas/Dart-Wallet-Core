@@ -6,7 +6,7 @@ structs:
 inits:
 - name: TWNervosAddressCreateWithString
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: string
     type:

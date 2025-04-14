@@ -1,12 +1,100 @@
 name: TWEthereumAbi
 structs:
 - name: TWEthereumAbiFunction
-  is_public: false
+  is_public: true
   is_class: false
 - name: TWEthereumAbi
   is_public: true
   is_class: false
 functions:
+- name: TWEthereumAbiDecodeContractCall
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWEthereumAbiDecodeParams
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWEthereumAbiDecodeValue
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWEthereumAbiEncodeFunction
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
 - name: TWEthereumAbiEncode
   is_public: true
   is_static: true
@@ -85,12 +173,12 @@ functions:
   is_public: true
   is_static: true
   params:
-    - name: abi
-      type:
-        variant: string
-        is_constant: true
-        is_nullable: false
-        is_pointer: true
+  - name: abi
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
   return_type:
     variant: string
     is_constant: true

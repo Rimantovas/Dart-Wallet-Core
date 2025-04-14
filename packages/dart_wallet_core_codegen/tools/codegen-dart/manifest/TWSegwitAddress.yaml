@@ -1,7 +1,7 @@
 name: TWSegwitAddress
 structs:
 - name: TWPublicKey
-  is_public: false
+  is_public: true
   is_class: false
 - name: TWSegwitAddress
   is_public: true
@@ -9,7 +9,7 @@ structs:
 inits:
 - name: TWSegwitAddressCreateWithString
   is_public: true
-  is_nullable: true
+  is_nullable: false
   params:
   - name: string
     type:

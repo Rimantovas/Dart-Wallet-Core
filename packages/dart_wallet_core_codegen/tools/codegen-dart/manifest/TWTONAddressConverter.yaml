@@ -1,0 +1,63 @@
+name: TWTONAddressConverter
+structs:
+- name: TWTONAddressConverter
+  is_public: true
+  is_class: false
+functions:
+- name: TWTONAddressConverterToBoc
+  is_public: true
+  is_static: true
+  params:
+  - name: address
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWTONAddressConverterFromBoc
+  is_public: true
+  is_static: true
+  params:
+  - name: boc
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWTONAddressConverterToUserFriendly
+  is_public: true
+  is_static: true
+  params:
+  - name: address
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: bounceable
+    type:
+      variant: bool
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: testnet
+    type:
+      variant: bool
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true

@@ -120,23 +120,68 @@ impl ImportInfo {
 
 impl EnumInfo {
     pub fn from_g_type(value: &GEnumDecl) -> Result<Self> {
+        // Extract the prefix from enum name, if any, to help with name processing
+        let enum_name = value.name.0.to_string();
+
+        let value_type = TypeVariant::UInt32T;
+
         Ok(EnumInfo {
-            name: value.name.0.to_string(),
-            // Enums are always public
-            // TOOD: Should be part of GEnumDecl
+            name: enum_name.clone(),
             is_public: true,
-            value_type: TypeVariant::Int, // Assuming int as default
+            value_type,
             variants: value
                 .variants
                 .iter()
                 .cloned()
-                .map(|(k, v)| EnumVariantInfo {
-                    name: k.0,
-                    value: v.map_or("0".to_string(), |n| n.to_string()),
-                    as_string: None,
+                .map(|(k, v)| {
+                    let original_name = k.0.clone();
+
+                    // Format the name by removing prefix and converting to camelCase
+                    let name = Self::format_variant_name(&enum_name, &original_name);
+
+                    // Use the numeric value directly, default to 0 if not provided
+                    let numeric_value = v.unwrap_or(0) as i64;
+
+                    EnumVariantInfo {
+                        name,
+                        value: numeric_value,
+                        as_string: None,
+                    }
                 })
                 .collect(),
         })
+    }
+
+    /// Format an enum variant name by removing the prefix and converting to camelCase
+    fn format_variant_name(enum_name: &str, variant_name: &str) -> String {
+        let name = if variant_name.starts_with(enum_name) {
+            &variant_name[enum_name.len()..]
+        } else {
+            variant_name
+        };
+
+        if name.is_empty() {
+            return String::new();
+        }
+
+        let contains_acronym = name
+            .chars()
+            .zip(name.chars().skip(1))
+            .any(|(a, b)| a.is_uppercase() && b.is_uppercase());
+
+        if contains_acronym {
+            return name.to_lowercase();
+        } else {
+            let mut result = String::new();
+            let mut chars = name.chars();
+
+            if let Some(first_char) = chars.next() {
+                result.push(first_char.to_lowercase().next().unwrap());
+            }
+
+            result.extend(chars);
+            return result;
+        }
     }
 }
 

@@ -213,7 +213,7 @@ pub fn generate_dart_types(mut info: FileInfo) -> Result<GeneratedDartTypes> {
 
                 DartEnumVariant {
                     name: capitalize_first(&info.name),
-                    value: info.value,
+                    value: info.value.to_string(),
                     as_string: info.as_string,
                 }
             })
