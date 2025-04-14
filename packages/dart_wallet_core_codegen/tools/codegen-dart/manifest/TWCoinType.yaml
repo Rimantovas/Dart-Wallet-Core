@@ -30,8 +30,6 @@ enums:
     value: 1815
   - name: cosmos
     value: 118
-  - name: pivx
-    value: 119
   - name: dash
     value: 5
   - name: decred
@@ -96,7 +94,7 @@ enums:
     value: 1001
   - name: neo
     value: 888
-  - name: viction
+  - name: tomoChain
     value: 889
   - name: tron
     value: 195
@@ -140,8 +138,6 @@ enums:
     value: 10000714
   - name: smartChain
     value: 20000714
-  - name: tbinance
-    value: 30000714
   - name: oasis
     value: 474
   - name: polygon
@@ -158,7 +154,7 @@ enums:
     value: 10042221
   - name: ecochain
     value: 10000553
-  - name: avalanchecchain
+  - name: avalancheCChain
     value: 10009000
   - name: xdai
     value: 10000100
@@ -174,24 +170,14 @@ enums:
     value: 10000118
   - name: ecash
     value: 899
-  - name: iost
-    value: 291
   - name: cronosChain
     value: 10000025
   - name: smartBitcoinCash
     value: 10000145
   - name: kuCoinCommunityChain
     value: 10000321
-  - name: bitcoinDiamond
-    value: 999
   - name: boba
     value: 10000288
-  - name: syscoin
-    value: 57
-  - name: verge
-    value: 77
-  - name: zen
-    value: 121
   - name: metis
     value: 10001088
   - name: aurora
@@ -212,18 +198,12 @@ enums:
     value: 18000
   - name: okxchain
     value: 996
-  - name: stratis
-    value: 105105
-  - name: komodo
-    value: 141
   - name: nervos
     value: 309
   - name: everscale
     value: 396
   - name: aptos
     value: 637
-  - name: nebl
-    value: 146
   - name: hedera
     value: 3030
   - name: secret
@@ -238,7 +218,7 @@ enums:
     value: 784
   - name: stargaze
     value: 20000118
-  - name: polygonzkevm
+  - name: polygonzkEVM
     value: 10001101
   - name: juno
     value: 30000118
@@ -250,7 +230,7 @@ enums:
     value: 60000118
   - name: kujira
     value: 70000118
-  - name: iotexevm
+  - name: ioTeXEVM
     value: 10004689
   - name: nativeCanto
     value: 10007700
@@ -260,7 +240,7 @@ enums:
     value: 90000118
   - name: sommelier
     value: 11000118
-  - name: fetchai
+  - name: fetchAI
     value: 12000118
   - name: mars
     value: 13000118
@@ -276,64 +256,6 @@ enums:
     value: 17000118
   - name: noble
     value: 18000118
-  - name: scroll
-    value: 534352
-  - name: rootstock
-    value: 137
-  - name: thetaFuel
-    value: 361
-  - name: confluxeSpace
-    value: 1030
-  - name: acala
-    value: 787
-  - name: acalaevm
-    value: 10000787
-  - name: opbnb
-    value: 204
-  - name: neon
-    value: 245022934
-  - name: base
-    value: 8453
-  - name: sei
-    value: 19000118
-  - name: arbitrumNova
-    value: 10042170
-  - name: linea
-    value: 59144
-  - name: greenfield
-    value: 5600
-  - name: mantle
-    value: 5000
-  - name: zeneon
-    value: 7332
-  - name: internetComputer
-    value: 223
-  - name: tia
-    value: 21000118
-  - name: mantaPacific
-    value: 169
-  - name: nativeZetaChain
-    value: 10007000
-  - name: zetaevm
-    value: 20007000
-  - name: dydx
-    value: 22000118
-  - name: merlin
-    value: 4200
-  - name: lightlink
-    value: 1890
-  - name: blast
-    value: 81457
-  - name: bounceBit
-    value: 6001
-  - name: zkLinkNova
-    value: 810180
-  - name: pactus
-    value: 21888
-  - name: sonic
-    value: 10000146
-  - name: polymesh
-    value: 595
 functions:
 - name: TWCoinTypeValidate
   is_public: true
@@ -437,36 +359,6 @@ functions:
       is_constant: false
       is_nullable: false
       is_pointer: true
-  return_type:
-    variant: string
-    is_constant: true
-    is_nullable: false
-    is_pointer: true
-- name: TWCoinTypeDeriveAddressFromPublicKeyAndDerivation
-  is_public: true
-  is_static: false
-  params:
-  - name: coin
-    type:
-      variant: enum
-      value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  - name: publicKey
-    type:
-      variant: struct
-      value: TWPublicKey
-      is_constant: false
-      is_nullable: false
-      is_pointer: true
-  - name: derivation
-    type:
-      variant: enum
-      value: TWDerivation
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
   return_type:
     variant: string
     is_constant: true

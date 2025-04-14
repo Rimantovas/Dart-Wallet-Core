@@ -192,83 +192,6 @@ functions:
     is_constant: false
     is_nullable: true
     is_pointer: true
-- name: TWStoredKeyImportPrivateKeyEncoded
-  is_public: true
-  is_static: true
-  params:
-  - name: privateKey
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: name
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: password
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: coin
-    type:
-      variant: enum
-      value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  return_type:
-    variant: struct
-    value: TWStoredKey
-    is_constant: false
-    is_nullable: true
-    is_pointer: true
-- name: TWStoredKeyImportPrivateKeyEncodedWithEncryption
-  is_public: true
-  is_static: true
-  params:
-  - name: privateKey
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: name
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: password
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: coin
-    type:
-      variant: enum
-      value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  - name: encryption
-    type:
-      variant: enum
-      value: TWStoredKeyEncryption
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  return_type:
-    variant: struct
-    value: TWStoredKey
-    is_constant: false
-    is_nullable: true
-    is_pointer: true
 - name: TWStoredKeyImportHDWallet
   is_public: true
   is_static: true
@@ -681,28 +604,6 @@ functions:
     is_constant: true
     is_nullable: true
     is_pointer: true
-- name: TWStoredKeyDecryptPrivateKeyEncoded
-  is_public: true
-  is_static: false
-  params:
-  - name: key
-    type:
-      variant: struct
-      value: TWStoredKey
-      is_constant: false
-      is_nullable: false
-      is_pointer: true
-  - name: password
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  return_type:
-    variant: string
-    is_constant: true
-    is_nullable: true
-    is_pointer: true
 - name: TWStoredKeyDecryptMnemonic
   is_public: true
   is_static: false
@@ -816,29 +717,6 @@ functions:
     is_constant: false
     is_nullable: false
     is_pointer: false
-- name: TWStoredKeyUpdateAddress
-  is_public: true
-  is_static: false
-  params:
-  - name: key
-    type:
-      variant: struct
-      value: TWStoredKey
-      is_constant: false
-      is_nullable: false
-      is_pointer: true
-  - name: coin
-    type:
-      variant: enum
-      value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  return_type:
-    variant: bool
-    is_constant: false
-    is_nullable: false
-    is_pointer: false
 properties:
 - name: TWStoredKeyIdentifier
   is_public: true
@@ -865,13 +743,6 @@ properties:
   is_public: true
   return_type:
     variant: size_t
-    is_constant: false
-    is_nullable: false
-    is_pointer: false
-- name: TWStoredKeyHasPrivateKeyEncoded
-  is_public: true
-  return_type:
-    variant: bool
     is_constant: false
     is_nullable: false
     is_pointer: false

@@ -41,7 +41,7 @@ inits:
       is_pointer: false
 - name: TWDerivationPathCreateWithString
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: string
     type:

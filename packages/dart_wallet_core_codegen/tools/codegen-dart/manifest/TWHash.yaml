@@ -181,33 +181,6 @@ functions:
     is_constant: true
     is_nullable: false
     is_pointer: true
-- name: TWHashBlake2bPersonal
-  is_public: true
-  is_static: true
-  params:
-  - name: data
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: personal
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: outlen
-    type:
-      variant: size_t
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  return_type:
-    variant: data
-    is_constant: true
-    is_nullable: false
-    is_pointer: true
 - name: TWHashGroestl512
   is_public: true
   is_static: true

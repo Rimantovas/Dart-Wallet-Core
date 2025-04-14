@@ -9,7 +9,7 @@ structs:
 inits:
 - name: TWAnyAddressCreateWithString
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: string
     type:
@@ -26,7 +26,7 @@ inits:
       is_pointer: false
 - name: TWAnyAddressCreateBech32
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: string
     type:
@@ -49,7 +49,7 @@ inits:
       is_pointer: true
 - name: TWAnyAddressCreateSS58
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: string
     type:
@@ -176,24 +176,6 @@ inits:
     type:
       variant: enum
       value: TWFilecoinAddressType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-- name: TWAnyAddressCreateWithPublicKeyFiroAddressType
-  is_public: true
-  is_nullable: false
-  params:
-  - name: publicKey
-    type:
-      variant: struct
-      value: TWPublicKey
-      is_constant: false
-      is_nullable: false
-      is_pointer: true
-  - name: firoAddressType
-    type:
-      variant: enum
-      value: TWFiroAddressType
       is_constant: false
       is_nullable: false
       is_pointer: false

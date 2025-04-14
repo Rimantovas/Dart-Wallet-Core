@@ -6,7 +6,7 @@ structs:
 inits:
 - name: TWPublicKeyCreateWithData
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: data
     type:

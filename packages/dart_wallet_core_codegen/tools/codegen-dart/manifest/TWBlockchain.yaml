@@ -59,8 +59,6 @@ enums:
     value: 26
   - name: algorand
     value: 27
-  - name: iost
-    value: 28
   - name: polkadot
     value: 29
   - name: cardano
@@ -85,39 +83,15 @@ enums:
     value: 39
   - name: kusama
     value: 40
-  - name: zen
-    value: 41
-  - name: bitcoinDiamond
-    value: 42
-  - name: verge
-    value: 43
   - name: nervos
-    value: 44
+    value: 41
   - name: everscale
-    value: 45
+    value: 42
   - name: aptos
-    value: 46
-  - name: nebl
-    value: 47
+    value: 43
   - name: hedera
-    value: 48
+    value: 44
   - name: theOpenNetwork
-    value: 49
+    value: 45
   - name: sui
-    value: 50
-  - name: greenfield
-    value: 51
-  - name: internetComputer
-    value: 52
-  - name: nativeEvmos
-    value: 53
-  - name: nativeInjective
-    value: 54
-  - name: bitcoinCash
-    value: 55
-  - name: pactus
-    value: 56
-  - name: komodo
-    value: 57
-  - name: polymesh
-    value: 58
+    value: 46

@@ -17,22 +17,6 @@ inits:
       is_constant: true
       is_nullable: false
       is_pointer: true
-- name: TWBitcoinScriptCreateWithBytes
-  is_public: true
-  is_nullable: false
-  params:
-  - name: bytes
-    type:
-      variant: u_int8_t
-      is_constant: false
-      is_nullable: false
-      is_pointer: true
-  - name: size
-    type:
-      variant: size_t
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
 - name: TWBitcoinScriptCreateCopy
   is_public: true
   is_nullable: false
@@ -260,41 +244,6 @@ functions:
     type:
       variant: enum
       value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  return_type:
-    variant: struct
-    value: TWBitcoinScript
-    is_constant: false
-    is_nullable: false
-    is_pointer: true
-- name: TWBitcoinScriptLockScriptForAddressReplay
-  is_public: true
-  is_static: true
-  params:
-  - name: address
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: coin
-    type:
-      variant: enum
-      value: TWCoinType
-      is_constant: false
-      is_nullable: false
-      is_pointer: false
-  - name: blockHash
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: blockHeight
-    type:
-      variant: int64_t
       is_constant: false
       is_nullable: false
       is_pointer: false

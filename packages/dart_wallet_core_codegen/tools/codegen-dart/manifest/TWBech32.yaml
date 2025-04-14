@@ -44,18 +44,18 @@ functions:
   is_public: true
   is_static: true
   params:
-  - name: hrp
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
-  - name: data
-    type:
-      variant: data
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
+    - name: hrp
+      type:
+        variant: string
+        is_constant: true
+        is_nullable: false
+        is_pointer: true
+    - name: data
+      type:
+        variant: data
+        is_constant: true
+        is_nullable: false
+        is_pointer: true
   return_type:
     variant: string
     is_constant: true
@@ -65,12 +65,12 @@ functions:
   is_public: true
   is_static: true
   params:
-  - name: string
-    type:
-      variant: string
-      is_constant: true
-      is_nullable: false
-      is_pointer: true
+    - name: string
+      type:
+        variant: string
+        is_constant: true
+        is_nullable: false
+        is_pointer: true
   return_type:
     variant: data
     is_constant: true

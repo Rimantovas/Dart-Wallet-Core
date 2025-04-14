@@ -1,7 +1,7 @@
 name: TWEthereum
 structs:
 - name: TWEthereum
-  is_public: false
+  is_public: true
   is_class: false
 functions:
 - name: TWEthereumEip2645GetPath
@@ -27,6 +27,33 @@ functions:
       is_nullable: false
       is_pointer: true
   - name: index
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWEthereumEip4337GetDeploymentAddress
+  is_public: true
+  is_static: true
+  params:
+  - name: factoryAddress
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: logicAddress
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: ownerAddress
     type:
       variant: string
       is_constant: true
