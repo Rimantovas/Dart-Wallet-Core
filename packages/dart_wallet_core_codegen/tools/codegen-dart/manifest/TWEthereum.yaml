@@ -1,7 +1,7 @@
 name: TWEthereum
 structs:
 - name: TWEthereum
-  is_public: true
+  is_public: false
   is_class: false
 functions:
 - name: TWEthereumEip2645GetPath

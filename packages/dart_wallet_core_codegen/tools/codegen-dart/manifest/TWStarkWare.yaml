@@ -1,7 +1,7 @@
 name: TWStarkWare
 structs:
 - name: TWStarkWare
-  is_public: true
+  is_public: false
   is_class: false
 functions:
 - name: TWStarkWareGetStarkKeyFromSignature

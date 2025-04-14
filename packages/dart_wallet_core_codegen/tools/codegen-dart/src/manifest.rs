@@ -38,12 +38,15 @@ pub fn process_c_header_dir(dir: &CHeaderDirectory) -> Vec<FileInfo> {
                     let markers = &decl.markers.0;
 
                     let mut is_class = false;
+                    let mut is_public = false;
                     match markers.first() {
                         Some(GMarker::TwExportStruct) => {
                             is_class = false;
+                            is_public = true;
                         }
                         Some(GMarker::TwExportClass) => {
                             is_class = true;
+                            is_public = true;
                         }
                         _ => {}
                     };
@@ -56,7 +59,7 @@ pub fn process_c_header_dir(dir: &CHeaderDirectory) -> Vec<FileInfo> {
                     {
                         file_info.structs.push(StructInfo {
                             name: decl.name.0 .0.clone(),
-                            is_public: true,
+                            is_public,
                             fields: vec![],
                             is_class,
                         });

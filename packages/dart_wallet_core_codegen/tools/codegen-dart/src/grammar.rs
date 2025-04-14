@@ -688,8 +688,9 @@ impl ParseTree for GStructDecl {
         // Ignore leading spaces.
         let (_, reader) = optional::<GSpaces>(reader);
 
-        // Derive (optional) markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        // Try to derive markers if present, but default to empty markers if not
+        let (markers, reader) = optional::<GMarkers>(reader);
+        let markers = markers.unwrap_or(GMarkers(vec![]));
 
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);
@@ -785,8 +786,9 @@ impl ParseTree for GStruct {
         // Ignore leading spaces.
         let (_, reader) = optional::<GSpaces>(reader);
 
-        // Derive (optional) markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        // Try to derive markers if present, but default to empty markers if not
+        let (markers, reader) = optional::<GMarkers>(reader);
+        let markers = markers.unwrap_or(GMarkers(vec![]));
 
         // Derive struct declaration.
         let (struct_res, reader) = ensure::<GStructName>(reader)?;

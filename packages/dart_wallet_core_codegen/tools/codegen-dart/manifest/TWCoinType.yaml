@@ -1,10 +1,10 @@
 name: TWCoinType
 structs:
 - name: TWPrivateKey
-  is_public: true
+  is_public: false
   is_class: false
 - name: TWPublicKey
-  is_public: true
+  is_public: false
   is_class: false
 enums:
 - name: TWCoinType

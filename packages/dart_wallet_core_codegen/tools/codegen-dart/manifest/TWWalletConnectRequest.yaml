@@ -1,7 +1,7 @@
 name: TWWalletConnectRequest
 structs:
 - name: TWWalletConnectRequest
-  is_public: true
+  is_public: false
   is_class: false
 functions:
 - name: TWWalletConnectRequestParse

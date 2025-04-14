@@ -1,7 +1,7 @@
 name: TWBitcoinAddress
 structs:
 - name: TWPublicKey
-  is_public: true
+  is_public: false
   is_class: false
 - name: TWBitcoinAddress
   is_public: true
