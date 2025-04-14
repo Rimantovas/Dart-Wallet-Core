@@ -47,7 +47,6 @@ fn create_manifest() -> Result<()> {
             && file_info.functions.is_empty()
             && file_info.properties.is_empty()
             && file_info.protos.is_empty()
-            && file_info.structs.is_empty()
             && file_info.enums.is_empty()
             && file_info.inits.is_empty()
         {
