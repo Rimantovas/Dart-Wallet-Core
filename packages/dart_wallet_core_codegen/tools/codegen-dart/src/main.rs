@@ -43,6 +43,16 @@ fn create_manifest() -> Result<()> {
     std::fs::create_dir_all("manifest/").unwrap();
 
     for file_info in file_infos {
+        if file_info.deinits.is_empty()
+            && file_info.functions.is_empty()
+            && file_info.properties.is_empty()
+            && file_info.protos.is_empty()
+            && file_info.structs.is_empty()
+            && file_info.enums.is_empty()
+            && file_info.inits.is_empty()
+        {
+            continue;
+        }
         let file_path = format!("manifest/{}.yaml", file_info.name);
         let yaml = serde_yaml::to_string(&file_info).unwrap();
         std::fs::write(&file_path, yaml.as_bytes()).unwrap();
