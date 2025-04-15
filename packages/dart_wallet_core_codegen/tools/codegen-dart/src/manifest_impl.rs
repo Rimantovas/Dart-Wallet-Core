@@ -122,33 +122,43 @@ impl EnumInfo {
     pub fn from_g_type(value: &GEnumDecl) -> Result<Self> {
         // Extract the prefix from enum name, if any, to help with name processing
         let enum_name = value.name.0.to_string();
+        // TODO: Parse the actual type from the TW_EXPORT_ENUM marker if possible
+        let value_type = TypeVariant::UInt32T; // Defaulting for now
 
-        let value_type = TypeVariant::UInt32T;
+        let mut variants: Vec<EnumVariantInfo> = value
+            .variants
+            .iter()
+            .cloned()
+            .map(|(k, v)| {
+                let original_name = k.0.clone();
+
+                // Format the name by removing prefix and converting to camelCase
+                let name = Self::format_variant_name(&enum_name, &original_name);
+
+                // Use the numeric value directly, default to 0 if not provided
+                let numeric_value = v.unwrap_or(0) as i64;
+
+                EnumVariantInfo {
+                    name,
+                    value: numeric_value,
+                    as_string: None,
+                }
+            })
+            .collect();
+
+        let mut current_value = 0;
+        for variant in variants.iter_mut() {
+            if variant.value == 0 {
+                variant.value = current_value;
+                current_value += 1;
+            }
+        }
 
         Ok(EnumInfo {
             name: enum_name.clone(),
-            is_public: true,
+            is_public: true, // TODO: Parse marker
             value_type,
-            variants: value
-                .variants
-                .iter()
-                .cloned()
-                .map(|(k, v)| {
-                    let original_name = k.0.clone();
-
-                    // Format the name by removing prefix and converting to camelCase
-                    let name = Self::format_variant_name(&enum_name, &original_name);
-
-                    // Use the numeric value directly, default to 0 if not provided
-                    let numeric_value = v.unwrap_or(0) as i64;
-
-                    EnumVariantInfo {
-                        name,
-                        value: numeric_value,
-                        as_string: None,
-                    }
-                })
-                .collect(),
+            variants: variants,
         })
     }
 
