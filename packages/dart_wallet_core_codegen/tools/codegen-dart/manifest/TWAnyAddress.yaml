@@ -179,6 +179,24 @@ inits:
       is_constant: false
       is_nullable: false
       is_pointer: false
+- name: TWAnyAddressCreateWithPublicKeyFiroAddressType
+  is_public: true
+  is_nullable: false
+  params:
+  - name: publicKey
+    type:
+      variant: struct
+      value: TWPublicKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: firoAddressType
+    type:
+      variant: enum
+      value: TWFiroAddressType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
 deinits:
 - name: TWAnyAddressDelete
 functions:

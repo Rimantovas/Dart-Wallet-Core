@@ -284,10 +284,18 @@ impl InitInfo {
     pub fn from_g_type(value: &GFunctionDecl) -> Result<Self> {
         let func = FunctionInfo::from_g_type(&None, value)?;
 
+        let mut return_markers = value.return_value.markers.0.iter();
+
+        let is_nullable = return_markers.any(|m| match m {
+            GMarker::Nullable => true,
+            GMarker::NonNull => false,
+            _ => true,
+        });
+
         Ok(InitInfo {
             name: func.name,
             is_public: true,
-            is_nullable: false, // Default value
+            is_nullable,
             params: func.params,
             comments: vec![],
         })
