@@ -135,6 +135,53 @@ static StoredKey? importPrivateKeyWithEncryption(Uint8List privateKey, String na
     deferManager.runDeferredActions();
     return StoredKey(result);
 }
+static StoredKey? importPrivateKeyEncoded(String privateKey, String name, Uint8List password, CoinType coin) {
+    final deferManager = DeferManager();
+    var privateKey0 = TWStringCreateWithNSString(privateKey);
+    deferManager.defer(() {
+        WalletCore.wcb.TWStringDelete(privateKey0);
+    });
+    var name0 = TWStringCreateWithNSString(name);
+    deferManager.defer(() {
+        WalletCore.wcb.TWStringDelete(name0);
+    });
+    var password0 = TWDataCreateWithNSData(password);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(password0);
+    });
+    var coin0 = coin.value;
+    var result = WalletCore.wcb.TWStoredKeyImportPrivateKeyEncoded(privateKey0,name0,password0,coin0);
+    if (result.address == nullptr.address) {
+        deferManager.runDeferredActions();
+        return null;
+    }
+    deferManager.runDeferredActions();
+    return StoredKey(result);
+}
+static StoredKey? importPrivateKeyEncodedWithEncryption(String privateKey, String name, Uint8List password, CoinType coin, StoredKeyEncryption encryption) {
+    final deferManager = DeferManager();
+    var privateKey0 = TWStringCreateWithNSString(privateKey);
+    deferManager.defer(() {
+        WalletCore.wcb.TWStringDelete(privateKey0);
+    });
+    var name0 = TWStringCreateWithNSString(name);
+    deferManager.defer(() {
+        WalletCore.wcb.TWStringDelete(name0);
+    });
+    var password0 = TWDataCreateWithNSData(password);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(password0);
+    });
+    var coin0 = coin.value;
+    var encryption0 = encryption.value;
+    var result = WalletCore.wcb.TWStoredKeyImportPrivateKeyEncodedWithEncryption(privateKey0,name0,password0,coin0,encryption0);
+    if (result.address == nullptr.address) {
+        deferManager.runDeferredActions();
+        return null;
+    }
+    deferManager.runDeferredActions();
+    return StoredKey(result);
+}
 static StoredKey? importHDWallet(String mnemonic, String name, Uint8List password, CoinType coin) {
     final deferManager = DeferManager();
     var mnemonic0 = TWStringCreateWithNSString(mnemonic);
@@ -338,6 +385,21 @@ Uint8List? decryptPrivateKey(Uint8List password) {
     deferManager.runDeferredActions();
     return TWDataNSData(result);
 }
+String? decryptPrivateKeyEncoded(Uint8List password) {
+    final deferManager = DeferManager();
+    var obj = rawValue;
+    var password0 = TWDataCreateWithNSData(password);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(password0);
+    });
+    var result = WalletCore.wcb.TWStoredKeyDecryptPrivateKeyEncoded(obj,password0);
+    if (result.address == nullptr.address) {
+        deferManager.runDeferredActions();
+        return null;
+    }
+    deferManager.runDeferredActions();
+    return TWStringNSString(result);
+}
 String? decryptMnemonic(Uint8List password) {
     final deferManager = DeferManager();
     var obj = rawValue;
@@ -406,6 +468,14 @@ bool fixAddresses(Uint8List password) {
     deferManager.runDeferredActions();
     return result;
 }
+bool updateAddress(CoinType coin) {
+    final deferManager = DeferManager();
+    var obj = rawValue;
+    var coin0 = coin.value;
+    var result = WalletCore.wcb.TWStoredKeyUpdateAddress(obj,coin0);
+    deferManager.runDeferredActions();
+    return result;
+}
 
 
 String? get identifier {
@@ -436,6 +506,13 @@ bool get isMnemonic {
 int get accountCount {
     final deferManager = DeferManager();
     var result = WalletCore.wcb.TWStoredKeyAccountCount(rawValue);
+    deferManager.runDeferredActions();
+    return result;
+}
+
+bool get hasPrivateKeyEncoded {
+    final deferManager = DeferManager();
+    var result = WalletCore.wcb.TWStoredKeyHasPrivateKeyEncoded(rawValue);
     deferManager.runDeferredActions();
     return result;
 }

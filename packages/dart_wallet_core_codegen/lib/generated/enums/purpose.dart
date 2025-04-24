@@ -3,6 +3,7 @@ enum Purpose {
     Bip44(44),
     Bip49(49),
     Bip84(84),
+    Bip86(86),
     Bip1852(1852),
     ;
 
@@ -17,6 +18,8 @@ enum Purpose {
                 return Purpose.Bip49;
             case 84:
                 return Purpose.Bip84;
+            case 86:
+                return Purpose.Bip86;
             case 1852:
                 return Purpose.Bip1852;
             default:

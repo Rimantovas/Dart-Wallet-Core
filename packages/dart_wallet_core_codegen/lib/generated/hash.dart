@@ -115,6 +115,20 @@ static Uint8List blake2b(Uint8List data, int size) {
     deferManager.runDeferredActions();
     return TWDataNSData(result);
 }
+static Uint8List blake2bPersonal(Uint8List data, Uint8List personal, int outlen) {
+    final deferManager = DeferManager();
+    var data0 = TWDataCreateWithNSData(data);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(data0);
+    });
+    var personal0 = TWDataCreateWithNSData(personal);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(personal0);
+    });
+    var result = WalletCore.wcb.TWHashBlake2bPersonal(data0,personal0,outlen);
+    deferManager.runDeferredActions();
+    return TWDataNSData(result);
+}
 static Uint8List groestl512(Uint8List data) {
     final deferManager = DeferManager();
     var data0 = TWDataCreateWithNSData(data);

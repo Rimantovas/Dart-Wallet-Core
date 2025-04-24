@@ -35,7 +35,7 @@ void main() {
           'afeefca74d9a325cf1d6b6911d61a65c32afa8e02bd5e78e2e4ac2910bab45f5'
               .hexToBytes());
       final publicKey =
-          privateKey?.getPublicKeyByType(PublicKeyType.Secp256k1Extended);
+          privateKey?.getPublicKeyByType(PublicKeyType.Secp256k1extended);
       final address = AnyAddress.createWithPublicKey(publicKey!, coin);
 
       expect(address.description, '0xAc1ec44E4f0ca7D172B7803f6836De87Fb72b309');

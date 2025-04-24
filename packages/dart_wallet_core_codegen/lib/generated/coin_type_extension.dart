@@ -47,6 +47,16 @@ String deriveAddressFromPublicKey(PublicKey publicKey) {
     return TWStringNSString(result);
 }
 
+String deriveAddressFromPublicKeyAndDerivation(PublicKey publicKey, Derivation derivation) {
+    final deferManager = DeferManager();
+    var obj = rawValue;
+    var publicKey0 = publicKey.rawValue;
+    var derivation0 = derivation.value;
+    var result = WalletCore.wcb.TWCoinTypeDeriveAddressFromPublicKeyAndDerivation(obj,publicKey0,derivation0);
+    deferManager.runDeferredActions();
+    return TWStringNSString(result);
+}
+
 Blockchain get blockchain {
     final deferManager = DeferManager();
     var result = WalletCore.wcb.TWCoinTypeBlockchain(rawValue);

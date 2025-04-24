@@ -1,8 +1,8 @@
 name: TWCryptoBoxPublicKey
 structs:
 - name: TWCryptoBoxPublicKey
-  is_public: false
-  is_class: false
+  is_public: true
+  is_class: true
 inits:
 - name: TWCryptoBoxPublicKeyCreateWithData
   is_public: true

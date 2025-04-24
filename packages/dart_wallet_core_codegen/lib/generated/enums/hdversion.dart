@@ -1,20 +1,26 @@
 part of '../generated.dart';
 enum HDVersion {
     None(0),
-    Xpub(0x0488b21e),
-    Xprv(0x0488ade4),
-    Ypub(0x049d7cb2),
-    Yprv(0x049d7878),
-    Zpub(0x04b24746),
-    Zprv(0x04b2430c),
-    Ltub(0x019da462),
-    Ltpv(0x019d9cfe),
-    Mtub(0x01b26ef6),
-    Mtpv(0x01b26792),
-    Dpub(0x2fda926),
-    Dprv(0x2fda4e8),
-    Dgub(0x02facafd),
-    Dgpv(0x02fac398),
+    Xpub(76067358),
+    Xprv(76066276),
+    Ypub(77429938),
+    Yprv(77428856),
+    Zpub(78792518),
+    Zprv(78791436),
+    Vpub(73342198),
+    Vprv(73341116),
+    Tpub(70617039),
+    Tprv(70615956),
+    Ltub(27108450),
+    Ltpv(27106558),
+    Mtub(28471030),
+    Mtpv(28469138),
+    Ttub(70711009),
+    Ttpv(70709117),
+    Dpub(50178342),
+    Dprv(50177256),
+    Dgub(49990397),
+    Dgpv(49988504),
     ;
 
     final int value;
@@ -24,33 +30,45 @@ enum HDVersion {
         switch (value) {
             case 0:
                 return HDVersion.None;
-            case 0x0488b21e:
+            case 76067358:
                 return HDVersion.Xpub;
-            case 0x0488ade4:
+            case 76066276:
                 return HDVersion.Xprv;
-            case 0x049d7cb2:
+            case 77429938:
                 return HDVersion.Ypub;
-            case 0x049d7878:
+            case 77428856:
                 return HDVersion.Yprv;
-            case 0x04b24746:
+            case 78792518:
                 return HDVersion.Zpub;
-            case 0x04b2430c:
+            case 78791436:
                 return HDVersion.Zprv;
-            case 0x019da462:
+            case 73342198:
+                return HDVersion.Vpub;
+            case 73341116:
+                return HDVersion.Vprv;
+            case 70617039:
+                return HDVersion.Tpub;
+            case 70615956:
+                return HDVersion.Tprv;
+            case 27108450:
                 return HDVersion.Ltub;
-            case 0x019d9cfe:
+            case 27106558:
                 return HDVersion.Ltpv;
-            case 0x01b26ef6:
+            case 28471030:
                 return HDVersion.Mtub;
-            case 0x01b26792:
+            case 28469138:
                 return HDVersion.Mtpv;
-            case 0x2fda926:
+            case 70711009:
+                return HDVersion.Ttub;
+            case 70709117:
+                return HDVersion.Ttpv;
+            case 50178342:
                 return HDVersion.Dpub;
-            case 0x2fda4e8:
+            case 50177256:
                 return HDVersion.Dprv;
-            case 0x02facafd:
+            case 49990397:
                 return HDVersion.Dgub;
-            case 0x02fac398:
+            case 49988504:
                 return HDVersion.Dgpv;
             default:
                 return null;

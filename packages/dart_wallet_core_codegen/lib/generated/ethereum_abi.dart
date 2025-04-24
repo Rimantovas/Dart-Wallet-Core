@@ -5,6 +5,50 @@ class EthereumAbi {
 
 
 
+static Uint8List decodeContractCall(CoinType coin, Uint8List input) {
+    final deferManager = DeferManager();
+    var coin0 = coin.value;
+    var input0 = TWDataCreateWithNSData(input);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(input0);
+    });
+    var result = WalletCore.wcb.TWEthereumAbiDecodeContractCall(coin0,input0);
+    deferManager.runDeferredActions();
+    return TWDataNSData(result);
+}
+static Uint8List decodeParams(CoinType coin, Uint8List input) {
+    final deferManager = DeferManager();
+    var coin0 = coin.value;
+    var input0 = TWDataCreateWithNSData(input);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(input0);
+    });
+    var result = WalletCore.wcb.TWEthereumAbiDecodeParams(coin0,input0);
+    deferManager.runDeferredActions();
+    return TWDataNSData(result);
+}
+static Uint8List decodeValue(CoinType coin, Uint8List input) {
+    final deferManager = DeferManager();
+    var coin0 = coin.value;
+    var input0 = TWDataCreateWithNSData(input);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(input0);
+    });
+    var result = WalletCore.wcb.TWEthereumAbiDecodeValue(coin0,input0);
+    deferManager.runDeferredActions();
+    return TWDataNSData(result);
+}
+static Uint8List encodeFunction(CoinType coin, Uint8List input) {
+    final deferManager = DeferManager();
+    var coin0 = coin.value;
+    var input0 = TWDataCreateWithNSData(input);
+    deferManager.defer(() {
+        WalletCore.wcb.TWDataDelete(input0);
+    });
+    var result = WalletCore.wcb.TWEthereumAbiEncodeFunction(coin0,input0);
+    deferManager.runDeferredActions();
+    return TWDataNSData(result);
+}
 static Uint8List encode(EthereumAbiFunction fn) {
     final deferManager = DeferManager();
     var fn0 = fn.rawValue;

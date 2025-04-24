@@ -7,19 +7,19 @@ enums:
   variants:
   - name: secp256k1
     value: 0
-  - name: secp256k1Extended
+  - name: secp256k1extended
     value: 1
   - name: nist256p1
     value: 2
-  - name: nist256p1Extended
+  - name: nist256p1extended
     value: 3
   - name: ed25519
     value: 4
-  - name: ed25519Blake2b
+  - name: ed25519blake2b
     value: 5
   - name: curve25519
     value: 6
-  - name: ed25519Cardano
+  - name: ed25519cardano
     value: 7
   - name: starkex
     value: 8

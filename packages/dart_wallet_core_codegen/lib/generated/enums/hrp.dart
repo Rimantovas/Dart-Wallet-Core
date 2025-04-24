@@ -7,49 +7,59 @@ enum HRP {
     Groestlcoin(4),
     DigiByte(5),
     Monacoin(6),
-    Cosmos(7),
-    BitcoinCash(8),
-    BitcoinGold(9),
-    IoTeX(10),
-    Nervos(11),
-    Zilliqa(12),
-    Terra(13),
-    CryptoOrg(14),
-    Kava(15),
-    Oasis(16),
-    Bluzelle(17),
-    BandChain(18),
-    MultiversX(19),
-    Secret(20),
-    Agoric(21),
-    Binance(22),
-    Ecash(23),
-    Thorchain(24),
-    Harmony(25),
-    Cardano(26),
-    Qtum(27),
-    NativeInjective(28),
-    Osmosis(29),
-    TerraV2(30),
-    Coreum(31),
-    NativeCanto(32),
-    Sommelier(33),
-    FetchAI(34),
-    Mars(35),
-    Umee(36),
-    Quasar(37),
-    Persistence(38),
-    Akash(39),
-    Noble(40),
-    Stargaze(41),
-    NativeEvmos(42),
-    Juno(43),
-    Stride(44),
-    Axelar(45),
-    Crescent(46),
-    Kujira(47),
-    Comdex(48),
-    Neutron(49),
+    Syscoin(7),
+    Verge(8),
+    Cosmos(9),
+    BitcoinCash(10),
+    BitcoinGold(11),
+    IoTeX(12),
+    Nervos(13),
+    Zilliqa(14),
+    Terra(15),
+    CryptoOrg(16),
+    Kava(17),
+    Oasis(18),
+    Bluzelle(19),
+    BandChain(20),
+    MultiversX(21),
+    Secret(22),
+    Agoric(23),
+    Binance(24),
+    Ecash(25),
+    Thorchain(26),
+    BitcoinDiamond(27),
+    Harmony(28),
+    Cardano(29),
+    Qtum(30),
+    Pactus(31),
+    Stratis(32),
+    NativeInjective(33),
+    Osmosis(34),
+    TerraV2(35),
+    Coreum(36),
+    NativeZetaChain(37),
+    NativeCanto(38),
+    Sommelier(39),
+    Fetchai(40),
+    Mars(41),
+    Umee(42),
+    Quasar(43),
+    Persistence(44),
+    Akash(45),
+    Noble(46),
+    Sei(47),
+    Stargaze(48),
+    NativeEvmos(49),
+    Tia(50),
+    Dydx(51),
+    Juno(52),
+    Tbinance(53),
+    Stride(54),
+    Axelar(55),
+    Crescent(56),
+    Kujira(57),
+    Comdex(58),
+    Neutron(59),
     ;
 
     final int value;
@@ -72,90 +82,110 @@ enum HRP {
             case 6:
                 return HRP.Monacoin;
             case 7:
-                return HRP.Cosmos;
+                return HRP.Syscoin;
             case 8:
-                return HRP.BitcoinCash;
+                return HRP.Verge;
             case 9:
-                return HRP.BitcoinGold;
+                return HRP.Cosmos;
             case 10:
-                return HRP.IoTeX;
+                return HRP.BitcoinCash;
             case 11:
-                return HRP.Nervos;
+                return HRP.BitcoinGold;
             case 12:
-                return HRP.Zilliqa;
+                return HRP.IoTeX;
             case 13:
-                return HRP.Terra;
+                return HRP.Nervos;
             case 14:
-                return HRP.CryptoOrg;
+                return HRP.Zilliqa;
             case 15:
-                return HRP.Kava;
+                return HRP.Terra;
             case 16:
-                return HRP.Oasis;
+                return HRP.CryptoOrg;
             case 17:
-                return HRP.Bluzelle;
+                return HRP.Kava;
             case 18:
-                return HRP.BandChain;
+                return HRP.Oasis;
             case 19:
-                return HRP.MultiversX;
+                return HRP.Bluzelle;
             case 20:
-                return HRP.Secret;
+                return HRP.BandChain;
             case 21:
-                return HRP.Agoric;
+                return HRP.MultiversX;
             case 22:
-                return HRP.Binance;
+                return HRP.Secret;
             case 23:
-                return HRP.Ecash;
+                return HRP.Agoric;
             case 24:
-                return HRP.Thorchain;
+                return HRP.Binance;
             case 25:
-                return HRP.Harmony;
+                return HRP.Ecash;
             case 26:
-                return HRP.Cardano;
+                return HRP.Thorchain;
             case 27:
-                return HRP.Qtum;
+                return HRP.BitcoinDiamond;
             case 28:
-                return HRP.NativeInjective;
+                return HRP.Harmony;
             case 29:
-                return HRP.Osmosis;
+                return HRP.Cardano;
             case 30:
-                return HRP.TerraV2;
+                return HRP.Qtum;
             case 31:
-                return HRP.Coreum;
+                return HRP.Pactus;
             case 32:
-                return HRP.NativeCanto;
+                return HRP.Stratis;
             case 33:
-                return HRP.Sommelier;
+                return HRP.NativeInjective;
             case 34:
-                return HRP.FetchAI;
+                return HRP.Osmosis;
             case 35:
-                return HRP.Mars;
+                return HRP.TerraV2;
             case 36:
-                return HRP.Umee;
+                return HRP.Coreum;
             case 37:
-                return HRP.Quasar;
+                return HRP.NativeZetaChain;
             case 38:
-                return HRP.Persistence;
+                return HRP.NativeCanto;
             case 39:
-                return HRP.Akash;
+                return HRP.Sommelier;
             case 40:
-                return HRP.Noble;
+                return HRP.Fetchai;
             case 41:
-                return HRP.Stargaze;
+                return HRP.Mars;
             case 42:
-                return HRP.NativeEvmos;
+                return HRP.Umee;
             case 43:
-                return HRP.Juno;
+                return HRP.Quasar;
             case 44:
-                return HRP.Stride;
+                return HRP.Persistence;
             case 45:
-                return HRP.Axelar;
+                return HRP.Akash;
             case 46:
-                return HRP.Crescent;
+                return HRP.Noble;
             case 47:
-                return HRP.Kujira;
+                return HRP.Sei;
             case 48:
-                return HRP.Comdex;
+                return HRP.Stargaze;
             case 49:
+                return HRP.NativeEvmos;
+            case 50:
+                return HRP.Tia;
+            case 51:
+                return HRP.Dydx;
+            case 52:
+                return HRP.Juno;
+            case 53:
+                return HRP.Tbinance;
+            case 54:
+                return HRP.Stride;
+            case 55:
+                return HRP.Axelar;
+            case 56:
+                return HRP.Crescent;
+            case 57:
+                return HRP.Kujira;
+            case 58:
+                return HRP.Comdex;
+            case 59:
                 return HRP.Neutron;
             default:
                 return null;
@@ -166,109 +196,4 @@ enum HRP {
         return value;
     }
 
-    @override
-    String toString() {
-        switch (this) {
-            case Unknown:
-                return "";
-            case Bitcoin:
-                return "bc";
-            case Litecoin:
-                return "ltc";
-            case Viacoin:
-                return "via";
-            case Groestlcoin:
-                return "grs";
-            case DigiByte:
-                return "dgb";
-            case Monacoin:
-                return "mona";
-            case Cosmos:
-                return "cosmos";
-            case BitcoinCash:
-                return "bitcoincash";
-            case BitcoinGold:
-                return "btg";
-            case IoTeX:
-                return "io";
-            case Nervos:
-                return "ckb";
-            case Zilliqa:
-                return "zil";
-            case Terra:
-                return "terra";
-            case CryptoOrg:
-                return "cro";
-            case Kava:
-                return "kava";
-            case Oasis:
-                return "oasis";
-            case Bluzelle:
-                return "bluzelle";
-            case BandChain:
-                return "band";
-            case MultiversX:
-                return "erd";
-            case Secret:
-                return "secret";
-            case Agoric:
-                return "agoric";
-            case Binance:
-                return "bnb";
-            case Ecash:
-                return "ecash";
-            case Thorchain:
-                return "thor";
-            case Harmony:
-                return "one";
-            case Cardano:
-                return "addr";
-            case Qtum:
-                return "qc";
-            case NativeInjective:
-                return "inj";
-            case Osmosis:
-                return "osmo";
-            case TerraV2:
-                return "terra";
-            case Coreum:
-                return "core";
-            case NativeCanto:
-                return "canto";
-            case Sommelier:
-                return "somm";
-            case FetchAI:
-                return "fetch";
-            case Mars:
-                return "mars";
-            case Umee:
-                return "umee";
-            case Quasar:
-                return "quasar";
-            case Persistence:
-                return "persistence";
-            case Akash:
-                return "akash";
-            case Noble:
-                return "noble";
-            case Stargaze:
-                return "stars";
-            case NativeEvmos:
-                return "evmos";
-            case Juno:
-                return "juno";
-            case Stride:
-                return "stride";
-            case Axelar:
-                return "axelar";
-            case Crescent:
-                return "cre";
-            case Kujira:
-                return "kujira";
-            case Comdex:
-                return "comdex";
-            case Neutron:
-                return "neutron";
-        }
-    }
 }

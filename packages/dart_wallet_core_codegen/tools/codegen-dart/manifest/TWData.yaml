@@ -38,7 +38,7 @@ inits:
       is_pointer: true
 - name: TWDataCreateWithHexString
   is_public: true
-  is_nullable: false
+  is_nullable: true
   params:
   - name: hex
     type:

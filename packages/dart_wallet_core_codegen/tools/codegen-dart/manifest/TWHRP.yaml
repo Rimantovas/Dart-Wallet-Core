@@ -7,154 +7,124 @@ enums:
   variants:
   - name: unknown
     value: 0
-    as_string: ''
   - name: bitcoin
     value: 1
-    as_string: bc
   - name: litecoin
     value: 2
-    as_string: ltc
   - name: viacoin
     value: 3
-    as_string: via
   - name: groestlcoin
     value: 4
-    as_string: grs
   - name: digiByte
     value: 5
-    as_string: dgb
   - name: monacoin
     value: 6
-    as_string: mona
-  - name: cosmos
+  - name: syscoin
     value: 7
-    as_string: cosmos
-  - name: bitcoinCash
+  - name: verge
     value: 8
-    as_string: bitcoincash
-  - name: bitcoinGold
+  - name: cosmos
     value: 9
-    as_string: btg
-  - name: ioTeX
+  - name: bitcoinCash
     value: 10
-    as_string: io
-  - name: nervos
+  - name: bitcoinGold
     value: 11
-    as_string: ckb
-  - name: zilliqa
+  - name: ioTeX
     value: 12
-    as_string: zil
-  - name: terra
+  - name: nervos
     value: 13
-    as_string: terra
-  - name: cryptoOrg
+  - name: zilliqa
     value: 14
-    as_string: cro
-  - name: kava
+  - name: terra
     value: 15
-    as_string: kava
-  - name: oasis
+  - name: cryptoOrg
     value: 16
-    as_string: oasis
-  - name: bluzelle
+  - name: kava
     value: 17
-    as_string: bluzelle
-  - name: bandChain
+  - name: oasis
     value: 18
-    as_string: band
-  - name: multiversX
+  - name: bluzelle
     value: 19
-    as_string: erd
-  - name: secret
+  - name: bandChain
     value: 20
-    as_string: secret
-  - name: agoric
+  - name: multiversX
     value: 21
-    as_string: agoric
-  - name: binance
+  - name: secret
     value: 22
-    as_string: bnb
-  - name: ecash
+  - name: agoric
     value: 23
-    as_string: ecash
-  - name: thorchain
+  - name: binance
     value: 24
-    as_string: thor
-  - name: harmony
+  - name: ecash
     value: 25
-    as_string: one
-  - name: cardano
+  - name: thorchain
     value: 26
-    as_string: addr
-  - name: qtum
+  - name: bitcoinDiamond
     value: 27
-    as_string: qc
-  - name: nativeInjective
+  - name: harmony
     value: 28
-    as_string: inj
-  - name: osmosis
+  - name: cardano
     value: 29
-    as_string: osmo
-  - name: terraV2
+  - name: qtum
     value: 30
-    as_string: terra
-  - name: coreum
+  - name: pactus
     value: 31
-    as_string: core
-  - name: nativeCanto
+  - name: stratis
     value: 32
-    as_string: canto
-  - name: sommelier
+  - name: nativeInjective
     value: 33
-    as_string: somm
-  - name: fetchAI
+  - name: osmosis
     value: 34
-    as_string: fetch
-  - name: mars
+  - name: terraV2
     value: 35
-    as_string: mars
-  - name: umee
+  - name: coreum
     value: 36
-    as_string: umee
-  - name: quasar
+  - name: nativeZetaChain
     value: 37
-    as_string: quasar
-  - name: persistence
+  - name: nativeCanto
     value: 38
-    as_string: persistence
-  - name: akash
+  - name: sommelier
     value: 39
-    as_string: akash
-  - name: noble
+  - name: fetchai
     value: 40
-    as_string: noble
-  - name: stargaze
+  - name: mars
     value: 41
-    as_string: stars
-  - name: nativeEvmos
+  - name: umee
     value: 42
-    as_string: evmos
-  - name: juno
+  - name: quasar
     value: 43
-    as_string: juno
-  - name: stride
+  - name: persistence
     value: 44
-    as_string: stride
-  - name: axelar
+  - name: akash
     value: 45
-    as_string: axelar
-  - name: crescent
+  - name: noble
     value: 46
-    as_string: cre
-  - name: kujira
+  - name: sei
     value: 47
-    as_string: kujira
-  - name: comdex
+  - name: stargaze
     value: 48
-    as_string: comdex
-  - name: neutron
+  - name: nativeEvmos
     value: 49
-    as_string: neutron
+  - name: tia
+    value: 50
+  - name: dydx
+    value: 51
+  - name: juno
+    value: 52
+  - name: tbinance
+    value: 53
+  - name: stride
+    value: 54
+  - name: axelar
+    value: 55
+  - name: crescent
+    value: 56
+  - name: kujira
+    value: 57
+  - name: comdex
+    value: 58
+  - name: neutron
+    value: 59
 functions:
 - name: stringForHRP
   is_public: false

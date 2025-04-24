@@ -1,9 +1,9 @@
 part of '../generated.dart';
 enum StellarVersionByte {
-    AccountId(0x30),
-    Seed(0xc0),
-    PreAuthTx(0xc8),
-    Sha256Hash(0x118),
+    Accountid(48),
+    Seed(192),
+    Preauthtx(200),
+    Sha256hash(280),
     ;
 
     final int value;
@@ -11,14 +11,14 @@ enum StellarVersionByte {
 
     static StellarVersionByte? fromValue(int value) {
         switch (value) {
-            case 0x30:
-                return StellarVersionByte.AccountId;
-            case 0xc0:
+            case 48:
+                return StellarVersionByte.Accountid;
+            case 192:
                 return StellarVersionByte.Seed;
-            case 0xc8:
-                return StellarVersionByte.PreAuthTx;
-            case 0x118:
-                return StellarVersionByte.Sha256Hash;
+            case 200:
+                return StellarVersionByte.Preauthtx;
+            case 280:
+                return StellarVersionByte.Sha256hash;
             default:
                 return null;
         }

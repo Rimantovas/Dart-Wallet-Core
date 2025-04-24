@@ -847,7 +847,8 @@ impl ParseTree for GReturnValue {
         let (ty, reader) = ensure::<GType>(reader)?;
 
         // Derive (optional) markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        let (markers_opt, reader) = optional::<GMarkers>(reader);
+        let markers = markers_opt.unwrap_or(GMarkers(vec![]));
 
         // Everything derived successfully, return.
         Ok(DerivationResult {
@@ -868,7 +869,8 @@ impl ParseTree for GParamItem {
         let (ty_derived, reader) = ensure::<GType>(reader)?;
 
         // Derive (optional) markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        let (markers_opt, reader) = optional::<GMarkers>(reader);
+        let markers = markers_opt.unwrap_or(GMarkers(vec![]));
 
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);
@@ -1111,8 +1113,9 @@ impl ParseTree for GStaticVar {
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);
 
-        // Retrieve markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        // Retrieve markers (optional).
+        let (markers_opt, reader) = optional::<GMarkers>(reader);
+        let markers = markers_opt.unwrap_or(GMarkers(vec![]));
 
         // Retrieve the name.
         let (var_name, reader) = ensure::<GKeyword>(reader)?;
@@ -1252,7 +1255,8 @@ impl ParseTree for GTypedef {
         let (_, reader) = optional::<GSeparators>(reader);
 
         // Derive (optional) markers.
-        let (markers, reader) = ensure::<GMarkers>(reader)?;
+        let (markers_opt, reader) = optional::<GMarkers>(reader);
+        let markers = markers_opt.unwrap_or(GMarkers(vec![]));
 
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);
@@ -1408,7 +1412,8 @@ impl ParseTree for GFunctionDecl {
         let mut params = vec![];
 
         // Derive (optional) marker.
-        let (mut markers, reader) = ensure::<GMarkers>(reader)?;
+        let (markers_opt, reader) = optional::<GMarkers>(reader);
+        let mut markers = markers_opt.unwrap_or(GMarkers(vec![]));
 
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);
@@ -1466,10 +1471,12 @@ impl ParseTree for GFunctionDecl {
         let (_, reader) = optional::<GSeparators>(reader);
 
         // Derive (optional) marker at the end of the function.
-        let (markers2, reader) = ensure::<GMarkers>(reader)?;
+        let (markers2_opt, reader) = optional::<GMarkers>(reader);
 
-        // Merge with first marker check.
-        markers.0.extend(markers2.0);
+        // Merge with first marker check if there are end markers
+        if let Some(markers2) = markers2_opt {
+            markers.0.extend(markers2.0);
+        }
 
         // Ignore leading separators.
         let (_, reader) = optional::<GSeparators>(reader);

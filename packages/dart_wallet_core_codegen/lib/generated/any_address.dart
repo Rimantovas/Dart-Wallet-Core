@@ -115,6 +115,15 @@ static AnyAddress createWithPublicKeyFilecoinAddressType(PublicKey publicKey, Fi
     deferManager.runDeferredActions();
     return AnyAddress(result);
 }
+static AnyAddress createWithPublicKeyFiroAddressType(PublicKey publicKey, FiroAddressType firoAddressType) {
+    final deferManager = DeferManager();
+    var publicKey0 = publicKey.rawValue;
+    var firoAddressType0 = firoAddressType.value;
+    var result = WalletCore.wcb.TWAnyAddressCreateWithPublicKeyFiroAddressType(publicKey0,firoAddressType0);
+
+    deferManager.runDeferredActions();
+    return AnyAddress(result);
+}
 
     void deinit() {
         WalletCore.wcb.TWAnyAddressDelete(rawValue);

@@ -9,6 +9,7 @@ enum CoinType {
     Callisto(820),
     Cardano(1815),
     Cosmos(118),
+    Pivx(119),
     Dash(5),
     Decred(42),
     DigiByte(20),
@@ -41,7 +42,7 @@ enum CoinType {
     Theta(500),
     ThunderCore(1001),
     Neo(888),
-    TomoChain(889),
+    Viction(889),
     Tron(195),
     VeChain(818),
     Viacoin(14),
@@ -63,6 +64,7 @@ enum CoinType {
     BandChain(494),
     SmartChainLegacy(10000714),
     SmartChain(20000714),
+    Tbinance(30000714),
     Oasis(474),
     Polygon(966),
     Thorchain(931),
@@ -71,7 +73,7 @@ enum CoinType {
     Zksync(10000324),
     Arbitrum(10042221),
     Ecochain(10000553),
-    AvalancheCChain(10009000),
+    Avalanchecchain(10009000),
     Xdai(10000100),
     Fantom(10000250),
     CryptoOrg(394),
@@ -79,10 +81,15 @@ enum CoinType {
     Ronin(10002020),
     Osmosis(10000118),
     Ecash(899),
+    Iost(291),
     CronosChain(10000025),
     SmartBitcoinCash(10000145),
     KuCoinCommunityChain(10000321),
+    BitcoinDiamond(999),
     Boba(10000288),
+    Syscoin(57),
+    Verge(77),
+    Zen(121),
     Metis(10001088),
     Aurora(1323161554),
     Evmos(10009001),
@@ -93,9 +100,12 @@ enum CoinType {
     Kaia(10008217),
     Meter(18000),
     Okxchain(996),
+    Stratis(105105),
+    Komodo(141),
     Nervos(309),
     Everscale(396),
     Aptos(637),
+    Nebl(146),
     Hedera(3030),
     Secret(529),
     NativeInjective(10000060),
@@ -103,18 +113,18 @@ enum CoinType {
     Ton(607),
     Sui(784),
     Stargaze(20000118),
-    PolygonzkEVM(10001101),
+    Polygonzkevm(10001101),
     Juno(30000118),
     Stride(40000118),
     Axelar(50000118),
     Crescent(60000118),
     Kujira(70000118),
-    IoTeXEVM(10004689),
+    Iotexevm(10004689),
     NativeCanto(10007700),
     Comdex(80000118),
     Neutron(90000118),
     Sommelier(11000118),
-    FetchAI(12000118),
+    Fetchai(12000118),
     Mars(13000118),
     Umee(14000118),
     Coreum(10000990),
@@ -122,6 +132,35 @@ enum CoinType {
     Persistence(16000118),
     Akash(17000118),
     Noble(18000118),
+    Scroll(534352),
+    Rootstock(137),
+    ThetaFuel(361),
+    ConfluxeSpace(1030),
+    Acala(787),
+    Acalaevm(10000787),
+    Opbnb(204),
+    Neon(245022934),
+    Base(8453),
+    Sei(19000118),
+    ArbitrumNova(10042170),
+    Linea(59144),
+    Greenfield(5600),
+    Mantle(5000),
+    Zeneon(7332),
+    InternetComputer(223),
+    Tia(21000118),
+    MantaPacific(169),
+    NativeZetaChain(10007000),
+    Zetaevm(20007000),
+    Dydx(22000118),
+    Merlin(4200),
+    Lightlink(1890),
+    Blast(81457),
+    BounceBit(6001),
+    ZkLinkNova(810180),
+    Pactus(21888),
+    Sonic(10000146),
+    Polymesh(595),
     ;
 
     final int value;
@@ -147,6 +186,8 @@ enum CoinType {
                 return CoinType.Cardano;
             case 118:
                 return CoinType.Cosmos;
+            case 119:
+                return CoinType.Pivx;
             case 5:
                 return CoinType.Dash;
             case 42:
@@ -212,7 +253,7 @@ enum CoinType {
             case 888:
                 return CoinType.Neo;
             case 889:
-                return CoinType.TomoChain;
+                return CoinType.Viction;
             case 195:
                 return CoinType.Tron;
             case 818:
@@ -255,6 +296,8 @@ enum CoinType {
                 return CoinType.SmartChainLegacy;
             case 20000714:
                 return CoinType.SmartChain;
+            case 30000714:
+                return CoinType.Tbinance;
             case 474:
                 return CoinType.Oasis;
             case 966:
@@ -272,7 +315,7 @@ enum CoinType {
             case 10000553:
                 return CoinType.Ecochain;
             case 10009000:
-                return CoinType.AvalancheCChain;
+                return CoinType.Avalanchecchain;
             case 10000100:
                 return CoinType.Xdai;
             case 10000250:
@@ -287,14 +330,24 @@ enum CoinType {
                 return CoinType.Osmosis;
             case 899:
                 return CoinType.Ecash;
+            case 291:
+                return CoinType.Iost;
             case 10000025:
                 return CoinType.CronosChain;
             case 10000145:
                 return CoinType.SmartBitcoinCash;
             case 10000321:
                 return CoinType.KuCoinCommunityChain;
+            case 999:
+                return CoinType.BitcoinDiamond;
             case 10000288:
                 return CoinType.Boba;
+            case 57:
+                return CoinType.Syscoin;
+            case 77:
+                return CoinType.Verge;
+            case 121:
+                return CoinType.Zen;
             case 10001088:
                 return CoinType.Metis;
             case 1323161554:
@@ -315,12 +368,18 @@ enum CoinType {
                 return CoinType.Meter;
             case 996:
                 return CoinType.Okxchain;
+            case 105105:
+                return CoinType.Stratis;
+            case 141:
+                return CoinType.Komodo;
             case 309:
                 return CoinType.Nervos;
             case 396:
                 return CoinType.Everscale;
             case 637:
                 return CoinType.Aptos;
+            case 146:
+                return CoinType.Nebl;
             case 3030:
                 return CoinType.Hedera;
             case 529:
@@ -336,7 +395,7 @@ enum CoinType {
             case 20000118:
                 return CoinType.Stargaze;
             case 10001101:
-                return CoinType.PolygonzkEVM;
+                return CoinType.Polygonzkevm;
             case 30000118:
                 return CoinType.Juno;
             case 40000118:
@@ -348,7 +407,7 @@ enum CoinType {
             case 70000118:
                 return CoinType.Kujira;
             case 10004689:
-                return CoinType.IoTeXEVM;
+                return CoinType.Iotexevm;
             case 10007700:
                 return CoinType.NativeCanto;
             case 80000118:
@@ -358,7 +417,7 @@ enum CoinType {
             case 11000118:
                 return CoinType.Sommelier;
             case 12000118:
-                return CoinType.FetchAI;
+                return CoinType.Fetchai;
             case 13000118:
                 return CoinType.Mars;
             case 14000118:
@@ -373,6 +432,64 @@ enum CoinType {
                 return CoinType.Akash;
             case 18000118:
                 return CoinType.Noble;
+            case 534352:
+                return CoinType.Scroll;
+            case 137:
+                return CoinType.Rootstock;
+            case 361:
+                return CoinType.ThetaFuel;
+            case 1030:
+                return CoinType.ConfluxeSpace;
+            case 787:
+                return CoinType.Acala;
+            case 10000787:
+                return CoinType.Acalaevm;
+            case 204:
+                return CoinType.Opbnb;
+            case 245022934:
+                return CoinType.Neon;
+            case 8453:
+                return CoinType.Base;
+            case 19000118:
+                return CoinType.Sei;
+            case 10042170:
+                return CoinType.ArbitrumNova;
+            case 59144:
+                return CoinType.Linea;
+            case 5600:
+                return CoinType.Greenfield;
+            case 5000:
+                return CoinType.Mantle;
+            case 7332:
+                return CoinType.Zeneon;
+            case 223:
+                return CoinType.InternetComputer;
+            case 21000118:
+                return CoinType.Tia;
+            case 169:
+                return CoinType.MantaPacific;
+            case 10007000:
+                return CoinType.NativeZetaChain;
+            case 20007000:
+                return CoinType.Zetaevm;
+            case 22000118:
+                return CoinType.Dydx;
+            case 4200:
+                return CoinType.Merlin;
+            case 1890:
+                return CoinType.Lightlink;
+            case 81457:
+                return CoinType.Blast;
+            case 6001:
+                return CoinType.BounceBit;
+            case 810180:
+                return CoinType.ZkLinkNova;
+            case 21888:
+                return CoinType.Pactus;
+            case 10000146:
+                return CoinType.Sonic;
+            case 595:
+                return CoinType.Polymesh;
             default:
                 return null;
         }

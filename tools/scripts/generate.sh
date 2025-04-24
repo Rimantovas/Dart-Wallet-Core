@@ -30,10 +30,10 @@ fi
 # Check if the proto were generated successfully
 if [ $? -eq 0 ]; then
   # Run rust code generator
-  cp -r ../../assets/manifest ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
-  rm -rf ../../packages/dart_wallet_core_codegen/lib/generated
+  # cp -r ../../assets/manifest ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
+  # rm -rf ../../packages/dart_wallet_core_codegen/lib/generated
   cd ../../packages/dart_wallet_core_codegen/tools/codegen-dart && cargo run -- dart
-  rm -rf ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
+  # rm -rf ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
 else
   echo "Error: Failed to generate protobufs."
   exit 1

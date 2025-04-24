@@ -40,6 +40,21 @@ String? defaultTokenAddress(String tokenMintAddress) {
     deferManager.runDeferredActions();
     return TWStringNSString(result);
 }
+String? token2022Address(String tokenMintAddress) {
+    final deferManager = DeferManager();
+    var obj = rawValue;
+    var tokenMintAddress0 = TWStringCreateWithNSString(tokenMintAddress);
+    deferManager.defer(() {
+        WalletCore.wcb.TWStringDelete(tokenMintAddress0);
+    });
+    var result = WalletCore.wcb.TWSolanaAddressToken2022Address(obj,tokenMintAddress0);
+    if (result.address == nullptr.address) {
+        deferManager.runDeferredActions();
+        return null;
+    }
+    deferManager.runDeferredActions();
+    return TWStringNSString(result);
+}
 
 
 String get description {

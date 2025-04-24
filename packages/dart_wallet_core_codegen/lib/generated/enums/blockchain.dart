@@ -27,6 +27,7 @@ enum Blockchain {
     Harmony(25),
     Near(26),
     Algorand(27),
+    Iost(28),
     Polkadot(29),
     Cardano(30),
     Neo(31),
@@ -39,12 +40,24 @@ enum Blockchain {
     Thorchain(38),
     Ronin(39),
     Kusama(40),
-    Nervos(41),
-    Everscale(42),
-    Aptos(43),
-    Hedera(44),
-    TheOpenNetwork(45),
-    Sui(46),
+    Zen(41),
+    BitcoinDiamond(42),
+    Verge(43),
+    Nervos(44),
+    Everscale(45),
+    Aptos(46),
+    Nebl(47),
+    Hedera(48),
+    TheOpenNetwork(49),
+    Sui(50),
+    Greenfield(51),
+    InternetComputer(52),
+    NativeEvmos(53),
+    NativeInjective(54),
+    BitcoinCash(55),
+    Pactus(56),
+    Komodo(57),
+    Polymesh(58),
     ;
 
     final int value;
@@ -106,6 +119,8 @@ enum Blockchain {
                 return Blockchain.Near;
             case 27:
                 return Blockchain.Algorand;
+            case 28:
+                return Blockchain.Iost;
             case 29:
                 return Blockchain.Polkadot;
             case 30:
@@ -131,17 +146,41 @@ enum Blockchain {
             case 40:
                 return Blockchain.Kusama;
             case 41:
-                return Blockchain.Nervos;
+                return Blockchain.Zen;
             case 42:
-                return Blockchain.Everscale;
+                return Blockchain.BitcoinDiamond;
             case 43:
-                return Blockchain.Aptos;
+                return Blockchain.Verge;
             case 44:
-                return Blockchain.Hedera;
+                return Blockchain.Nervos;
             case 45:
-                return Blockchain.TheOpenNetwork;
+                return Blockchain.Everscale;
             case 46:
+                return Blockchain.Aptos;
+            case 47:
+                return Blockchain.Nebl;
+            case 48:
+                return Blockchain.Hedera;
+            case 49:
+                return Blockchain.TheOpenNetwork;
+            case 50:
                 return Blockchain.Sui;
+            case 51:
+                return Blockchain.Greenfield;
+            case 52:
+                return Blockchain.InternetComputer;
+            case 53:
+                return Blockchain.NativeEvmos;
+            case 54:
+                return Blockchain.NativeInjective;
+            case 55:
+                return Blockchain.BitcoinCash;
+            case 56:
+                return Blockchain.Pactus;
+            case 57:
+                return Blockchain.Komodo;
+            case 58:
+                return Blockchain.Polymesh;
             default:
                 return null;
         }

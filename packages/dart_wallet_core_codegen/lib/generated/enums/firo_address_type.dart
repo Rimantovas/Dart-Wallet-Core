@@ -1,18 +1,18 @@
 part of '../generated.dart';
-enum StellarPassphrase {
-    Stellar(0),
-    Kin(1),
+enum FiroAddressType {
+    Default(0),
+    Exchange(1),
     ;
 
     final int value;
-    const StellarPassphrase(this.value);
+    const FiroAddressType(this.value);
 
-    static StellarPassphrase? fromValue(int value) {
+    static FiroAddressType? fromValue(int value) {
         switch (value) {
             case 0:
-                return StellarPassphrase.Stellar;
+                return FiroAddressType.Default;
             case 1:
-                return StellarPassphrase.Kin;
+                return FiroAddressType.Exchange;
             default:
                 return null;
         }

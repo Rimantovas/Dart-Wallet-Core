@@ -17,7 +17,7 @@ const entropyHex = "ba5821e8c356c05ba5f025d9532fe0f21f65d594";
 void main() {
   initTest();
 
-  group('HDWallet', () {
+  group('TWHDWallet', () {
     test('CreateFromMnemonic', () {
       final wallet = HDWallet.createWithMnemonic(gWords, gPassphrase);
       expect(wallet?.mnemonic, wordsStr);
