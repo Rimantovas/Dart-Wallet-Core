@@ -320,7 +320,7 @@ pub struct GEnumName(pub GKeyword);
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
 pub struct GEnumDecl {
     pub name: GKeyword,
-    pub variants: Vec<(GKeyword, Option<usize>)>,
+    pub variants: Vec<(GKeyword, Option<usize>, Option<String>)>,
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize, Deserialize)]
@@ -477,12 +477,11 @@ impl ParseTree for GEnumDecl {
             // Check for possible assignment ("=").
             let (assignment, reader) = optional::<GAssignment>(reader);
             if assignment.is_none() {
-                // Track variant without value.
-                variants.push((field_name, None));
+                let (inline_comment, reader) = optional::<GInlineComment>(reader);
+                let string_value =
+                    inline_comment.and_then(|comment| extract_string_from_comment(&comment.0));
 
-                // TODO: Should be parsed
-                // Wipe (possible) inline comment.
-                let (_, reader) = optional::<GInlineComment>(reader);
+                variants.push((field_name, None, string_value));
 
                 // Check for comma.
                 let (comma, reader) = optional::<GComma>(reader);
@@ -516,21 +515,20 @@ impl ParseTree for GEnumDecl {
                     .map_err(|_| Error::io_error_other(format!("Error parsing other number")))?
             };
 
-            // Track variant with value.
-            variants.push((field_name, Some(number)));
-
             // Ignore leading separators.
             let (_, reader) = optional::<GSeparators>(reader);
+
+            let (inline_comment, reader) = optional::<GInlineComment>(reader);
+            let string_value =
+                inline_comment.and_then(|comment| extract_string_from_comment(&comment.0));
+
+            variants.push((field_name, Some(number), string_value));
 
             // Check for comma.
             let (comma, reader) = optional::<GComma>(reader);
 
             // Ignore leading separators.
             let (_, reader) = optional::<GSeparators>(reader);
-
-            // TODO: Should be parsed
-            // Wipe (possible) inline comment.
-            let (_, reader) = optional::<GInlineComment>(reader);
 
             // TODO: Should be parsed
             // Wipe (possible) comment.
@@ -1778,6 +1776,25 @@ impl ParseTree for GTypeCategory {
             "Error parsing type category"
         )))
     }
+}
+
+// Function to extract string value from inline comment (text between quotes)
+fn extract_string_from_comment(comment: &str) -> Option<String> {
+    let mut in_quotes = false;
+    let mut result = String::new();
+
+    for c in comment.chars() {
+        if c == '"' {
+            if in_quotes {
+                return Some(result);
+            }
+            in_quotes = true;
+        } else if in_quotes {
+            result.push(c);
+        }
+    }
+
+    None
 }
 
 #[cfg(test)]

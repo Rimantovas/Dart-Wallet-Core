@@ -128,7 +128,7 @@ impl EnumInfo {
             .variants
             .iter()
             .cloned()
-            .map(|(k, v)| {
+            .map(|(k, v, s)| {
                 let original_name = k.0.clone();
 
                 let name = Self::format_variant_name(&enum_name, &original_name);
@@ -138,7 +138,7 @@ impl EnumInfo {
                 EnumVariantInfo {
                     name,
                     value: numeric_value,
-                    as_string: None,
+                    as_string: s,
                 }
             })
             .collect();
