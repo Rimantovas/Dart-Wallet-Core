@@ -1,4 +1,6 @@
 // Converts a String to Pointer<Utf8>, caller must free it after use.
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:ffi';
 
 import 'package:dart_wallet_core_codegen/core.dart';

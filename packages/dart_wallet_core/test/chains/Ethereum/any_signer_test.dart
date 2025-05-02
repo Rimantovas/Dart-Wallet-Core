@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:dart_wallet_core/dart_wallet_core.dart';
-import 'package:dart_wallet_core_codegen/proto/Ethereum.pb.dart' as Ethereum;
+import 'package:dart_wallet_core_codegen/proto/Ethereum.pb.dart' as ethereum;
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../utils.dart';
@@ -25,15 +25,15 @@ void main() {
           "0x4646464646464646464646464646464646464646464646464646464646464646"
               .hexToBytes();
 
-      final input = Ethereum.SigningInput(
+      final input = ethereum.SigningInput(
         chainId: chainId,
         nonce: nonce,
         // tx_mode not set, Legacy is the default
         gasPrice: gasPrice,
         gasLimit: gasLimit,
         privateKey: key,
-        transaction: Ethereum.Transaction(
-          contractGeneric: Ethereum.Transaction_ContractGeneric(
+        transaction: ethereum.Transaction(
+          contractGeneric: ethereum.Transaction_ContractGeneric(
             data: data,
           ),
         ),
@@ -44,7 +44,7 @@ void main() {
 
       // sign test
       final output = AnySigner.sign(
-          input, coin, (value) => Ethereum.SigningOutput.fromBuffer(value));
+          input, coin, (value) => ethereum.SigningOutput.fromBuffer(value));
 
       expectHex(output.encoded, expected);
       expectHexBytes(output.data, data);
@@ -62,7 +62,7 @@ void main() {
           "0x608dcb1742bb3fb7aec002074e3420e4fab7d00cced79ccdac53ed5b27138151"
               .hexToBytes();
 
-      final input = Ethereum.SigningInput(
+      final input = ethereum.SigningInput(
         chainId: chainId,
         nonce: nonce,
         // tx_mode not set, Legacy is the default
@@ -70,8 +70,8 @@ void main() {
         gasLimit: gasLimit,
         toAddress: token,
         privateKey: key,
-        transaction: Ethereum.Transaction(
-          erc20Transfer: Ethereum.Transaction_ERC20Transfer(
+        transaction: ethereum.Transaction(
+          erc20Transfer: ethereum.Transaction_ERC20Transfer(
             to: toAddress,
             amount: amount,
           ),
@@ -83,7 +83,7 @@ void main() {
           'f8aa808509c7652400830130b9946b175474e89094c44da98b954eedeac495271d0f80b844a9059cbb0000000000000000000000005322b34c88ed0691971bf52a7047448f0f4efc840000000000000000000000000000000000000000000000001bc16d674ec8000025a0724c62ad4fbf47346b02de06e603e013f26f26b56fdc0be7ba3d6273401d98cea0032131cae15da7ddcda66963e8bef51ca0d9962bfef0547d3f02597a4a58c931';
 
       // sign test
-      final output = Ethereum.SigningOutput.fromBuffer(
+      final output = ethereum.SigningOutput.fromBuffer(
           AnySigner.sign(input, coin, (val) => val));
       expectHex(output.encoded, expected);
 

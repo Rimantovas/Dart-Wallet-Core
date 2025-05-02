@@ -15,7 +15,6 @@ class WalletCore {
     if (Platform.environment.containsKey('FLUTTER_TEST')) {
       final path =
           testLibraryPath ?? 'test/assets/libTrustWalletCore_arm64.dylib';
-      print('Loading library from: $path');
       final lib = DynamicLibrary.open(path);
       return lib;
     } else {

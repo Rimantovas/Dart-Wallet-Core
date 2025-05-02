@@ -94,6 +94,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  dart_wallet_core_utils:
+    dependency: transitive
+    description:
+      path: "../../dart_wallet_core_utils"
+      relative: true
+    source: path
+    version: "0.0.1"
   fake_async:
     dependency: transitive
     description:
