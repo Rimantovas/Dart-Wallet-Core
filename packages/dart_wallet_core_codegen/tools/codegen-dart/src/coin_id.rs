@@ -6,7 +6,6 @@ use serde::{Deserialize, Deserializer};
 pub struct CoinId(String);
 
 impl CoinId {
-    /// Returns `Ok` if only the given `id` is a valid Rust identifier.
     pub fn new(id: String) -> Result<CoinId> {
         let first_letter = id
             .chars()

@@ -120,10 +120,9 @@ impl ImportInfo {
 
 impl EnumInfo {
     pub fn from_g_type(value: &GEnumDecl) -> Result<Self> {
-        // Extract the prefix from enum name, if any, to help with name processing
         let enum_name = value.name.0.to_string();
         // TODO: Parse the actual type from the TW_EXPORT_ENUM marker if possible
-        let value_type = TypeVariant::UInt32T; // Defaulting for now
+        let value_type = TypeVariant::UInt32T;
 
         let mut variants: Vec<EnumVariantInfo> = value
             .variants
@@ -132,10 +131,8 @@ impl EnumInfo {
             .map(|(k, v)| {
                 let original_name = k.0.clone();
 
-                // Format the name by removing prefix and converting to camelCase
                 let name = Self::format_variant_name(&enum_name, &original_name);
 
-                // Use the numeric value directly, default to 0 if not provided
                 let numeric_value = v.unwrap_or(0) as i64;
 
                 EnumVariantInfo {
@@ -162,7 +159,6 @@ impl EnumInfo {
         })
     }
 
-    /// Format an enum variant name by removing the prefix and converting to camelCase
     fn format_variant_name(enum_name: &str, variant_name: &str) -> String {
         let name = if variant_name.starts_with(enum_name) {
             &variant_name[enum_name.len()..]
@@ -238,46 +234,32 @@ impl StructInfo {
 
 impl PropertyInfo {
     pub fn from_g_type(value: &GFunctionDecl) -> Result<Self> {
-        // ### Name
-
-        // Strip the object name from the property name.
-        // E.g. "SomeObjectIsValid" => "IsValid"
         let name = value.name.0.clone();
 
         if name.is_empty() {
             return Err(Error::BadFormat("Empty property name".to_string()));
         }
 
-        // ### Marker
-
         let mut markers = value.markers.0.iter();
 
-        // Must have one marker.
         if markers.size_hint().0 != 1 {
             return Err(Error::BadFormat(
                 "Invalid marker count for property".to_string(),
             ));
         }
 
-        // The property must have one of the two available markers and is always public.
         let is_public = match markers.next() {
             Some(GMarker::TwExportProperty) => true,
             Some(GMarker::TwExportStaticProperty) => true,
             _ => return Err(Error::BadFormat("Invalid marker for property".to_string())),
         };
 
-        // ### Param
-
-        // Must have at least one parameter.
         if value.params.len() < 1 {
             return Err(Error::BadFormat(
                 "Property must have at least one parameter".to_string(),
             ));
         }
 
-        // ### Return value
-
-        // Extract return value.
         let re = &value.return_value;
         let return_type = TypeInfo::from_g_type(&re.ty, &re.markers)?;
 
@@ -339,20 +321,13 @@ impl FunctionInfo {
             return Err(Error::BadFormat("Empty function name".to_string()));
         }
 
-        // ### Marker
-
         let mut markers = value.markers.0.iter();
 
-        // The method must have one of the two available markers and is always public.
         let (is_static, is_public) = match markers.next() {
             Some(GMarker::TwExportMethod) => (false, true),
             Some(GMarker::TwExportStaticMethod) => (true, true),
-            // TODO:?
-            //_ => return Err(Error::BadObject),
             _ => (false, false),
         };
-
-        // ### Params
 
         let mut g_params = value.params.iter();
 
@@ -365,9 +340,6 @@ impl FunctionInfo {
             })
         }
 
-        // ### Return value
-
-        // Extract return value.
         let re = &value.return_value;
         let return_type = TypeInfo::from_g_type(&re.ty, &re.markers)?;
 

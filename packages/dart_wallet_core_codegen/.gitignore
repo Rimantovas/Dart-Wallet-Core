@@ -33,4 +33,7 @@ build/
 tools/codegen-dart/out/manifest/*
 tools/codegen-dart/target/**/*
 tools/codegen-dart/src/tests/**/*
+tools/codegen-dart/src/codegen/cpp/**/*
+tools/codegen-dart/src/codegen/proto/**/*
+tools/codegen-dart/src/codegen/rust/**/*
 tools/include

@@ -1,15 +1,8 @@
-/*
- * Copyright 2018 ProximaX Limited. All rights reserved.
- * Use of this source code is governed by the Apache 2.0
- * license that can be found in the LICENSE file.
- */
-
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
 import 'package:dart_wallet_core_utils/utils/byte_utils.dart';
 
-/// A utility class that provides functions for converting hex strings.
 class HexUtils {
   /// Converts a hex string to a [Uint8List].
   static Uint8List hexToBytes(String hexString) {
@@ -132,8 +125,6 @@ class HexUtils {
       throw ArgumentError('Failed reversing the input. Error: $e');
     }
   }
-
-  // ------------------------------ private / protected functions ------------------------------ //
 
   /// Converts a hex string into byte array. Also tries to correct malformed hex string.
   static List<int> _getBytesInternal(final String hexString) {

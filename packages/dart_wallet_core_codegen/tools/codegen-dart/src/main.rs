@@ -1,8 +1,5 @@
 use libparser::codegen::dart::RenderIntput;
-use libparser::codegen::{cpp, proto, rust};
-use libparser::coin_id::CoinId;
 use libparser::manifest::parse_dir;
-use libparser::registry::read_coin_from_registry;
 use libparser::{Error, Result};
 use std::fs;
 
@@ -200,27 +197,3 @@ fn process_directory(dir: &Path, generated_file: &mut fs::File, base_dir: &str) 
     }
     Ok(())
 }
-
-// Helper function to copy directories recursively
-// fn copy_dir_all(src: impl AsRef<Path>, dst: impl AsRef<Path>) -> io::Result<()> {
-//     // Remove the destination directory if it exists
-//     if dst.as_ref().exists() {
-//         fs::remove_dir_all(&dst)?;
-//     }
-
-//     // Recreate the destination directory
-//     fs::create_dir_all(&dst)?;
-
-//     // Iterate over entries in the source directory
-//     for entry in fs::read_dir(src)? {
-//         let entry = entry?;
-//         let src_path = entry.path();
-//         let dst_path = dst.as_ref().join(entry.file_name());
-//         if src_path.is_dir() {
-//             copy_dir_all(src_path, dst_path)?;
-//         } else {
-//             fs::copy(src_path, dst_path)?;
-//         }
-//     }
-//     Ok(())
-// }

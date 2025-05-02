@@ -14,8 +14,6 @@ pub mod manifest;
 mod manifest_impl;
 mod reader;
 pub mod registry;
-#[cfg(test)]
-mod tests;
 pub mod utils;
 
 pub type Result<T> = std::result::Result<T, Error>;

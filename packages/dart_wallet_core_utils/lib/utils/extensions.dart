@@ -7,13 +7,17 @@ import 'package:ffi/ffi.dart';
 const String _base58Alphabet =
     '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 
+/// Extension on [List<int>] to convert to [Uint8List] and get hex string.
 extension ListIntToHexString on List<int> {
+  /// Converts the list to a [Uint8List].
   Uint8List get toUint8List => Uint8List.fromList(this);
 
+  /// Returns the hex string representation of the list.
   String get hexString {
     return map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
   }
 
+  /// Converts the list to a [Pointer<Uint8>].
   Pointer<Uint8> toPointerUint8() {
     final blob = calloc<Uint8>(length);
     final blobBytes = blob.asTypedList(length);
@@ -21,16 +25,16 @@ extension ListIntToHexString on List<int> {
     return blob;
   }
 
+  /// Encodes the list to a base58 string.
   String toBase58() => base58encode(toList(growable: false));
 
+  /// Encodes the list to a base58 string.
   String base58encode(List<int> bytes) {
     String encoded = '';
     if (bytes.isEmpty) return encoded;
     final zeroes = bytes.takeWhile((v) => v == 0).length;
     int length = 0;
-    // Compute final size
     final size = (bytes.length - zeroes) * 138 ~/ 100 + 1;
-    // Create temporary storage
     final List<int> b58bytes = List<int>.filled(size, 0);
     for (final byteValue in bytes.skip(zeroes)) {
       int carry = byteValue;
@@ -52,6 +56,7 @@ extension ListIntToHexString on List<int> {
     return '1' * zeroes + encoded;
   }
 
+  /// Converts the list to a [BigInt].
   BigInt get toBigInt {
     BigInt result = BigInt.zero;
     for (int i = 0; i < length; i++) {
@@ -61,7 +66,9 @@ extension ListIntToHexString on List<int> {
   }
 }
 
+/// Extension on [String] to convert to [Uint8List] and get hex string.
 extension StringExtension on String {
+  /// Converts the string to a [Uint8List].
   Uint8List hexToBytes() {
     var string = "";
     if (startsWith('0x')) {
@@ -120,11 +127,13 @@ extension StringExtension on String {
     }
   }
 
+  /// Checks if the string contains non-hex digits.
   bool containsNonHexDigit() {
     final hexPattern = RegExp(r'[^0-9A-Fa-f]');
     return split('').any((char) => hexPattern.hasMatch(char));
   }
 
+  /// Converts the string to a hex string.
   String get hexToString {
     try {
       // Attempt to parse the string as hex
@@ -146,6 +155,7 @@ extension StringExtension on String {
 }
 
 extension IntExtensionX on int {
+  /// Converts the integer to a [Uint8List].
   Uint8List get serialize {
     if (this == 0) return Uint8List.fromList([0]);
     var bytes = <int>[];
@@ -159,8 +169,10 @@ extension IntExtensionX on int {
 }
 
 extension BigIntExtension on BigInt {
+  /// Returns the absolute value of the big integer.
   BigInt get magnitude => abs();
 
+  /// Converts the big integer to a [Uint8List].
   Uint8List get serialize {
     BigInt number = this;
     List<int> bytes = [];
@@ -173,6 +185,7 @@ extension BigIntExtension on BigInt {
     return Uint8List.fromList(bytes.reversed.toList());
   }
 
+  /// Converts the big integer to a [Uint8List].
   Uint8List toBytes() {
     var byteList = <int>[];
     var byteData = toUnsigned(8 * ((bitLength + 7) >> 3)).toRadixString(16);

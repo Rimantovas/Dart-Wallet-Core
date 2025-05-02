@@ -1,9 +1,3 @@
-/*
- * Copyright 2018 ProximaX Limited. All rights reserved.
- * Use of this source code is governed by the Apache 2.0
- * license that can be found in the LICENSE file.
- */
-
 import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
@@ -11,7 +5,6 @@ import 'dart:typed_data';
 import 'package:convert/convert.dart';
 import 'package:dart_wallet_core_utils/utils/hex_utils.dart';
 
-/// A utility class that provides functions for converting Bytes.
 class ByteUtils {
   List<String> hexArray = '0123456789ABCDEF'.split('');
 
@@ -59,7 +52,6 @@ class ByteUtils {
 
   /// Converts an integer to a byte array.
   static Uint8List intToBytes(int long, int length) {
-    // we want to represent the input as a 8-bytes array
     final byteArray = Uint8List(length);
 
     for (var index = length - 1; index >= 0; index--) {
@@ -67,9 +59,6 @@ class ByteUtils {
       byteArray[index] = byte;
       long = (long - byte) ~/ 256;
     }
-
-    // Cleaner implementation but breaks in dart2js/flutter web
-    // return Uint8List(8)..buffer.asByteData().setInt64(0, long);
 
     return reverseBytes(byteArray);
   }
@@ -87,8 +76,6 @@ class ByteUtils {
   /// Concatenates one or more byte arrays.
   static Uint8List concat(List<Uint8List> bytes) {
     final bufferHex = StringBuffer();
-    // var hex = '';
-
     for (var byte in bytes) {
       bufferHex.write(bytesToHex(byte));
     }
