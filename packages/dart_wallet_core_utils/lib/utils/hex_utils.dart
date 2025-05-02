@@ -7,7 +7,7 @@
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
-import 'package:dart_wallet_core_codegen/utils/byte_utils.dart';
+import 'package:dart_wallet_core_utils/utils/byte_utils.dart';
 
 /// A utility class that provides functions for converting hex strings.
 class HexUtils {

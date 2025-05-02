@@ -1,6 +1,7 @@
 name: dart_wallet_core_codegen
 description: "A new Flutter package project."
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: ^3.6.0
@@ -13,6 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
   protobuf: 4.0.0
+  dart_wallet_core_utils:
+    path: ../dart_wallet_core_utils
 
 dev_dependencies:
   flutter_test:

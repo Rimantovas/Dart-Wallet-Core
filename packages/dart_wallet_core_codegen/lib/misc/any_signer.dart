@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:dart_wallet_core_codegen/core.dart';
 import 'package:dart_wallet_core_codegen/generated/generated.dart';
-import 'package:dart_wallet_core_codegen/utils/utils.dart';
+import 'package:dart_wallet_core_codegen/misc/misc.dart';
 import 'package:protobuf/protobuf.dart';
 
 typedef Formatter<T> = T Function(Uint8List bytes);

@@ -2,7 +2,7 @@ import 'dart:ffi';
 import 'dart:typed_data';
 
 import 'package:dart_wallet_core_codegen/core.dart';
-import 'package:dart_wallet_core_codegen/utils/extensions/misc.dart';
+import 'package:dart_wallet_core_utils/dart_wallet_core_utils.dart';
 
 Pointer<Void> TWDataCreateWithNSData(Uint8List data) {
   return WalletCore.wcb

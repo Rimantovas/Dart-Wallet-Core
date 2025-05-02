@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:dart_wallet_core/dart_wallet_core.dart';
-import 'package:dart_wallet_core_codegen/utils/hex_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../utils.dart';

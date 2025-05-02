@@ -15,6 +15,8 @@ dependencies:
     path: ../dart_wallet_core_codegen
   dart_wallet_core_platform:
     path: ../dart_wallet_core_platform
+  dart_wallet_core_utils:
+    path: ../dart_wallet_core_utils
   collection: ^1.19.0
 
 dev_dependencies:

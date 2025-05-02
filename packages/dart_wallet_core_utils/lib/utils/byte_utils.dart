@@ -9,7 +9,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
-import 'package:dart_wallet_core_codegen/utils/hex_utils.dart';
+import 'package:dart_wallet_core_utils/utils/hex_utils.dart';
 
 /// A utility class that provides functions for converting Bytes.
 class ByteUtils {
