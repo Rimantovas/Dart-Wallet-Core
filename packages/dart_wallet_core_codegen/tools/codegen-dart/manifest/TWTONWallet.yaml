@@ -1,8 +1,8 @@
 name: TWTONWallet
 structs:
 - name: TWTONWallet
-  is_public: false
-  is_class: false
+  is_public: true
+  is_class: true
 functions:
 - name: TWTONWalletBuildV4R2StateInit
   is_public: true

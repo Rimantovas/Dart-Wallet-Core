@@ -35,17 +35,13 @@ pub fn process_c_header_dir(dir: &CHeaderDirectory) -> Vec<FileInfo> {
 
                     let mut is_class = false;
                     let mut is_public = false;
-                    match markers.first() {
-                        Some(GMarker::TwExportStruct) => {
-                            is_class = false;
-                            is_public = true;
-                        }
-                        Some(GMarker::TwExportClass) => {
-                            is_class = true;
-                            is_public = true;
-                        }
-                        _ => {}
-                    };
+                    if markers.contains(&GMarker::TwExportStruct) {
+                        is_class = false;
+                        is_public = true;
+                    } else if markers.contains(&GMarker::TwExportClass) {
+                        is_class = true;
+                        is_public = true;
+                    }
 
                     if !file_info
                         .structs

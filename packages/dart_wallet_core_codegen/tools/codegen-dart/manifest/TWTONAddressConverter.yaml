@@ -1,8 +1,8 @@
 name: TWTONAddressConverter
 structs:
 - name: TWTONAddressConverter
-  is_public: false
-  is_class: false
+  is_public: true
+  is_class: true
 functions:
 - name: TWTONAddressConverterToBoc
   is_public: true

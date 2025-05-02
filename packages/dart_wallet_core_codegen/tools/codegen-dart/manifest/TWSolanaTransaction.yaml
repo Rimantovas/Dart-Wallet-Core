@@ -1,8 +1,8 @@
 name: TWSolanaTransaction
 structs:
 - name: TWSolanaTransaction
-  is_public: false
-  is_class: false
+  is_public: true
+  is_class: true
 functions:
 - name: TWSolanaTransactionUpdateBlockhashAndSign
   is_public: true

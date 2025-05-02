@@ -1,8 +1,8 @@
 name: TWMessageSigner
 structs:
 - name: TWMessageSigner
-  is_public: false
-  is_class: false
+  is_public: true
+  is_class: true
 functions:
 - name: TWMessageSignerSign
   is_public: true

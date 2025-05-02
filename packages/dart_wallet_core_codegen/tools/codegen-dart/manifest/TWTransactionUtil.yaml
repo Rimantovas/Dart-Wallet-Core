@@ -1,7 +1,7 @@
 name: TWTransactionUtil
 structs:
 - name: TWTransactionUtil
-  is_public: false
+  is_public: true
   is_class: false
 functions:
 - name: TWTransactionUtilCalcTxHash

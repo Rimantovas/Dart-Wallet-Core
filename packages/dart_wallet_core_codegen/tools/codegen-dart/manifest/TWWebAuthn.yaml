@@ -1,7 +1,7 @@
 name: TWWebAuthn
 structs:
 - name: TWWebAuthn
-  is_public: false
+  is_public: true
   is_class: false
 functions:
 - name: TWWebAuthnGetPublicKey
