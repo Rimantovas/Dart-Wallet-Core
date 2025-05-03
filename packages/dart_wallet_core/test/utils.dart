@@ -17,8 +17,9 @@ void initTest() {
   });
 }
 
-void expectHex(List<int> actual, String expected) {
-  expect(Uint8List.fromList(actual).hexString, expected.replaceFirst('0x', ''));
+void expectHex(List<int>? actual, String expected) {
+  expect(Uint8List.fromList(actual ?? []).hexString,
+      expected.replaceFirst('0x', ''));
 }
 
 void expectHexBytes(List<int> actual, List<int> expected) {

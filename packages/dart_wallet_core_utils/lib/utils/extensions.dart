@@ -152,6 +152,11 @@ extension StringExtension on String {
       return result;
     }
   }
+
+  /// Converts the string to bytes
+  Uint8List get stringToBytes {
+    return utf8.encode(this);
+  }
 }
 
 extension IntExtensionX on int {
