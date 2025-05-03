@@ -2,9 +2,9 @@ import 'dart:core';
 import 'dart:ffi';
 import 'dart:typed_data';
 
-import 'package:dart_wallet_core_codegen/bindings/bindings.dart';
 import 'package:dart_wallet_core_codegen/core.dart';
 import 'package:dart_wallet_core_codegen/misc/misc.dart';
+import 'package:dart_wallet_core_codegen/src/bindings/bindings.dart';
 
 part 'account.dart';
 part 'aes.dart';

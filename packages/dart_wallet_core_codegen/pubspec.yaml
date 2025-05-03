@@ -26,7 +26,7 @@ dev_dependencies:
 ############################################################
 
 ffigen:
-  output: "lib/bindings/bindings.dart"
+  output: "lib/src/bindings/bindings.dart"
 
   name: "WCB"
   sort: true

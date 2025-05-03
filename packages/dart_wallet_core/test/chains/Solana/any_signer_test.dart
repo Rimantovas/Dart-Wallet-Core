@@ -1,5 +1,5 @@
 import 'package:dart_wallet_core/dart_wallet_core.dart';
-import 'package:dart_wallet_core_codegen/proto/Solana.pb.dart' as solana;
+import 'package:dart_wallet_core_codegen/src/proto/Solana.pb.dart' as solana;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:flutter_test/flutter_test.dart';
 

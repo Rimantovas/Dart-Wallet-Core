@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:dart_wallet_core_codegen/generated/generated.dart';
+import 'package:dart_wallet_core_codegen/src/generated/generated.dart';
 
 typedef Hasher = Uint8List Function(Uint8List data);
 

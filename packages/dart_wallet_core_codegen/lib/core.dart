@@ -1,7 +1,7 @@
 import 'dart:ffi';
 import 'dart:io';
 
-import 'package:dart_wallet_core_codegen/bindings/bindings.dart';
+import 'package:dart_wallet_core_codegen/src/bindings/bindings.dart';
 
 class WalletCore {
   final WCB _wcb;

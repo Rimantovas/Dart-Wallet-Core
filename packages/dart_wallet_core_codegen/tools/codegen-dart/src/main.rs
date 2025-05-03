@@ -6,7 +6,7 @@ use std::fs;
 use std::fs::read_to_string;
 use std::io::{self, Write};
 use std::path::Path;
-const OUT_DIR: &str = "../../lib/generated";
+const OUT_DIR: &str = "../../lib/src/generated";
 const IN_DIR: &str = "src/codegen/dart/templates";
 const MANIFEST_DIR: &str = "manifest/";
 static DART_IMPORT_STATEMENTS: &[&str] = &[
@@ -15,7 +15,7 @@ static DART_IMPORT_STATEMENTS: &[&str] = &[
     "import 'dart:typed_data';",
     "import 'package:dart_wallet_core_codegen/core.dart';",
     "import 'package:dart_wallet_core_codegen/utils/utils.dart';",
-    "import 'package:dart_wallet_core_codegen/bindings/bindings.dart';",
+    "import 'package:dart_wallet_core_codegen/src/bindings/bindings.dart';",
 ];
 
 fn main() -> Result<()> {

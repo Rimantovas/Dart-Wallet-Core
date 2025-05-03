@@ -1,2 +1,3 @@
 export 'core.dart';
-export 'generated/generated.dart';
+export 'misc/misc.dart';
+export 'src/generated/generated.dart';
