@@ -1,0 +1,64 @@
+name: TWCryptoBox
+structs:
+- name: TWCryptoBox
+  is_public: true
+  is_class: false
+functions:
+- name: TWCryptoBoxEncryptEasy
+  is_public: true
+  is_static: true
+  params:
+  - name: mySecret
+    type:
+      variant: struct
+      value: TWCryptoBoxSecretKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: otherPubkey
+    type:
+      variant: struct
+      value: TWCryptoBoxPublicKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: message
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWCryptoBoxDecryptEasy
+  is_public: true
+  is_static: true
+  params:
+  - name: mySecret
+    type:
+      variant: struct
+      value: TWCryptoBoxSecretKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: otherPubkey
+    type:
+      variant: struct
+      value: TWCryptoBoxPublicKey
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  - name: encrypted
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: true
+    is_pointer: true

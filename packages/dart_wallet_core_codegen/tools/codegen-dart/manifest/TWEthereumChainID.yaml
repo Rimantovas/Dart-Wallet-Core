@@ -1,0 +1,117 @@
+name: TWEthereumChainID
+enums:
+- name: TWEthereumChainID
+  is_public: true
+  value_type:
+    variant: u_int32_t
+  variants:
+  - name: ethereum
+    value: 1
+  - name: classic
+    value: 61
+  - name: rootstock
+    value: 30
+  - name: manta
+    value: 169
+  - name: poa
+    value: 99
+  - name: opbnb
+    value: 204
+  - name: tfuelevm
+    value: 361
+  - name: vechain
+    value: 74
+  - name: callisto
+    value: 820
+  - name: viction
+    value: 88
+  - name: polygon
+    value: 137
+  - name: okc
+    value: 66
+  - name: thundertoken
+    value: 108
+  - name: cfxevm
+    value: 1030
+  - name: lightlink
+    value: 1890
+  - name: merlin
+    value: 4200
+  - name: mantle
+    value: 5000
+  - name: bouncebit
+    value: 6001
+  - name: gochain
+    value: 60
+  - name: zeneon
+    value: 7332
+  - name: base
+    value: 8453
+  - name: meter
+    value: 82
+  - name: celo
+    value: 42220
+  - name: linea
+    value: 59144
+  - name: blast
+    value: 81457
+  - name: scroll
+    value: 534352
+  - name: zklinknova
+    value: 810180
+  - name: wanchain
+    value: 888
+  - name: cronos
+    value: 25
+  - name: optimism
+    value: 10
+  - name: xdai
+    value: 100
+  - name: smartbch
+    value: 10000
+  - name: sonic
+    value: 146
+  - name: fantom
+    value: 250
+  - name: boba
+    value: 288
+  - name: kcc
+    value: 321
+  - name: zksync
+    value: 324
+  - name: heco
+    value: 128
+  - name: acalaevm
+    value: 787
+  - name: metis
+    value: 1088
+  - name: polygonzkevm
+    value: 1101
+  - name: moonbeam
+    value: 1284
+  - name: moonriver
+    value: 1285
+  - name: ronin
+    value: 2020
+  - name: kavaevm
+    value: 2222
+  - name: iotexevm
+    value: 4689
+  - name: kaia
+    value: 8217
+  - name: avalanchec
+    value: 43114
+  - name: evmos
+    value: 9001
+  - name: arbitrumnova
+    value: 42170
+  - name: arbitrum
+    value: 42161
+  - name: smartchain
+    value: 56
+  - name: zetaevm
+    value: 7000
+  - name: neon
+    value: 245022934
+  - name: aurora
+    value: 1313161554

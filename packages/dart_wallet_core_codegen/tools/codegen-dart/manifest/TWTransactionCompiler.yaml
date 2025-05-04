@@ -1,0 +1,107 @@
+name: TWTransactionCompiler
+structs:
+- name: TWTransactionCompiler
+  is_public: true
+  is_class: false
+functions:
+- name: TWTransactionCompilerPreImageHashes
+  is_public: true
+  is_static: true
+  params:
+  - name: coinType
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: txInputData
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWTransactionCompilerCompileWithSignatures
+  is_public: true
+  is_static: true
+  params:
+  - name: coinType
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: txInputData
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: signatures
+    type:
+      variant: struct
+      value: TWDataVector
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: publicKeys
+    type:
+      variant: struct
+      value: TWDataVector
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true
+- name: TWTransactionCompilerCompileWithSignaturesAndPubKeyType
+  is_public: true
+  is_static: true
+  params:
+  - name: coinType
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: txInputData
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: signatures
+    type:
+      variant: struct
+      value: TWDataVector
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: publicKeys
+    type:
+      variant: struct
+      value: TWDataVector
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: pubKeyType
+    type:
+      variant: enum
+      value: TWPublicKeyType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: false
+    is_pointer: true

@@ -1,0 +1,72 @@
+name: TWMessageSigner
+structs:
+- name: TWMessageSigner
+  is_public: true
+  is_class: true
+functions:
+- name: TWMessageSignerSign
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWMessageSignerVerify
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: bool
+    is_constant: false
+    is_nullable: false
+    is_pointer: false
+- name: TWMessageSignerPreImageHashes
+  is_public: true
+  is_static: true
+  params:
+  - name: coin
+    type:
+      variant: enum
+      value: TWCoinType
+      is_constant: false
+      is_nullable: false
+      is_pointer: false
+  - name: input
+    type:
+      variant: data
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: true
+    is_pointer: true

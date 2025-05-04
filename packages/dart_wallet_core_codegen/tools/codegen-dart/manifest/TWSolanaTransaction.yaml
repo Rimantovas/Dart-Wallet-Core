@@ -1,0 +1,127 @@
+name: TWSolanaTransaction
+structs:
+- name: TWSolanaTransaction
+  is_public: true
+  is_class: true
+functions:
+- name: TWSolanaTransactionUpdateBlockhashAndSign
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: recentBlockhash
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: privateKeys
+    type:
+      variant: struct
+      value: TWDataVector
+      is_constant: false
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: data
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWSolanaTransactionGetComputeUnitPrice
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWSolanaTransactionGetComputeUnitLimit
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWSolanaTransactionSetComputeUnitPrice
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: price
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWSolanaTransactionSetComputeUnitLimit
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: limit
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
+- name: TWSolanaTransactionSetFeePayer
+  is_public: true
+  is_static: true
+  params:
+  - name: encodedTx
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  - name: feePayer
+    type:
+      variant: string
+      is_constant: true
+      is_nullable: false
+      is_pointer: true
+  return_type:
+    variant: string
+    is_constant: true
+    is_nullable: true
+    is_pointer: true
