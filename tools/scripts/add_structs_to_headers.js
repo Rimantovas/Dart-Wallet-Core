@@ -60,5 +60,5 @@ function processHeaders(directory) {
   });
 }
 
-const directory = "../../assets/include";
+const directory = "../../packages/dart_wallet_core_codegen/include";
 processHeaders(directory);

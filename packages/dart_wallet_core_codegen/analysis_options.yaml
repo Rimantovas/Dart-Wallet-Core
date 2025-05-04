@@ -6,8 +6,8 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
-    - "lib/generated/**"
-    - "lib/bindings/**"
+    # - "lib/src/generated/**"
+    - "lib/src/bindings/**"
   errors:
     constant_identifier_names: ignore
 
@@ -16,3 +16,4 @@ analyzer:
 linter:
   rules:
     constant_identifier_names: true
+    non_constant_identifier_names: false

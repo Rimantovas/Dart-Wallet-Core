@@ -31,7 +31,7 @@ ffigen:
   name: "WCB"
   sort: true
   description: "Trust Wallet Core Binding To Dart."
-
+  silence-enum-warning: true
   enums:
     as-int:
       include:

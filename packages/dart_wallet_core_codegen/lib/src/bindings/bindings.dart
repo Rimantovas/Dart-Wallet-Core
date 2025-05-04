@@ -12916,18 +12916,17 @@ class WCB {
   late final _valloc =
       _vallocPtr.asFunction<ffi.Pointer<ffi.Void> Function(int)>();
 
-  int wait$1(
+  int wait(
     ffi.Pointer<ffi.Int> arg0,
   ) {
-    return _wait$1(
+    return _wait(
       arg0,
     );
   }
 
-  late final _wait$1Ptr =
+  late final _waitPtr =
       _lookup<ffi.NativeFunction<pid_t Function(ffi.Pointer<ffi.Int>)>>('wait');
-  late final _wait$1 =
-      _wait$1Ptr.asFunction<int Function(ffi.Pointer<ffi.Int>)>();
+  late final _wait = _waitPtr.asFunction<int Function(ffi.Pointer<ffi.Int>)>();
 
   int wait3(
     ffi.Pointer<ffi.Int> arg0,
@@ -16886,4 +16885,4 @@ typedef user_time_t = ffi.Int64;
 typedef Dartuser_time_t = int;
 typedef user_ulong_t = u_int64_t;
 
-final class wait extends ffi.Opaque {}
+final class wait$1 extends ffi.Opaque {}

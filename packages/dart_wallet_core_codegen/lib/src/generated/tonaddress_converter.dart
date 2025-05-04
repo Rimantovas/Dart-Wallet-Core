@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class TONAddressConverter {
-    TONAddressConverter();
+    final Pointer<TWTONAddressConverter> rawValue;
+
+    TONAddressConverter(this.rawValue);
 
 
 

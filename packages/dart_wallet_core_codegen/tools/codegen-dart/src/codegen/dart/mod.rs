@@ -258,6 +258,20 @@ impl From<TypeVariant> for DartType {
     }
 }
 
+impl From<&TypeInfo> for DartType {
+    fn from(info: &TypeInfo) -> Self {
+        // Special case: UInt8T with is_pointer should be Uint8List
+        if let TypeVariant::UInt8T = info.variant {
+            if info.is_pointer {
+                return DartType("Uint8List".to_string());
+            }
+        }
+
+        // Otherwise, fall back to the regular implementation
+        Self::from(info.variant.clone())
+    }
+}
+
 // Covenience function: process the parameter, returning the operation for
 // handling the C FFI call (if any).
 fn param_c_ffi_call(param: &ParamInfo) -> Option<DartOperation> {
@@ -377,11 +391,11 @@ fn wrap_return(ty: &TypeInfo) -> DartOperation {
         },
         // E.g. `return SomeEnum.fromValue(result.rawValue)`
         TypeVariant::Enum(_) => DartOperation::Return {
-            call: format!("{}.fromValue(result)!", DartType::from(ty.variant.clone())),
+            call: format!("{}.fromValue(result)!", DartType::from(ty)),
         },
         // E.g. `return SomeStruct(result)`
         TypeVariant::Struct(_) => DartOperation::Return {
-            call: format!("{}(result)", DartType::from(ty.variant.clone())),
+            call: format!("{}(result)", DartType::from(ty)),
         },
         _ => DartOperation::Return {
             call: "result".to_string(),

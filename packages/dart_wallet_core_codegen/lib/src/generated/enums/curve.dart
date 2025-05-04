@@ -40,4 +40,25 @@ enum Curve {
         return value;
     }
 
+    @override
+    String toString() {
+        switch (this) {
+            case Secp256k1:
+                return "secp256k1";
+            case Ed25519:
+                return "ed25519";
+            case Ed25519blake2bnano:
+                return "ed25519-blake2b-nano";
+            case Curve25519:
+                return "curve25519";
+            case Nist256p1:
+                return "nist256p1";
+            case Ed25519extendedcardano:
+                return "ed25519-cardano-seed";
+            case Starkex:
+                return "starkex";
+            case None:
+                return "";
+        }
+    }
 }

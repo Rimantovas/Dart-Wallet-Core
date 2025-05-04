@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class WalletConnectRequest {
-    WalletConnectRequest();
+    final Pointer<TWWalletConnectRequest> rawValue;
+
+    WalletConnectRequest(this.rawValue);
 
 
 

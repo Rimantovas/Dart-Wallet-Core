@@ -1,5 +1,6 @@
 import 'package:dart_wallet_core/dart_wallet_core.dart';
-import 'package:dart_wallet_core_codegen/proto/Ethereum.pb.dart' as ethereum;
+import 'package:dart_wallet_core_codegen/src/proto/Ethereum.pb.dart'
+    as ethereum;
 import 'package:flutter/material.dart';
 
 void main() {

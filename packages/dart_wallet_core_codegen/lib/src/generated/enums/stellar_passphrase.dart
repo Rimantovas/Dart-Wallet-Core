@@ -22,4 +22,13 @@ enum StellarPassphrase {
         return value;
     }
 
+    @override
+    String toString() {
+        switch (this) {
+            case Stellar:
+                return "Public Global Stellar Network ; September 2015";
+            case Kin:
+                return "Kin Mainnet ; December 2018";
+        }
+    }
 }

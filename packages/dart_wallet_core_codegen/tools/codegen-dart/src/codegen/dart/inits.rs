@@ -33,7 +33,7 @@ pub(super) fn process_inits(
             // Convert parameter to Dart parameter.
             params.push(DartParam {
                 name: param.name.clone(),
-                param_type: DartType::from(param.ty.variant.clone()),
+                param_type: DartType::from(&param.ty),
                 variant: param.ty.variant.clone(),
                 is_nullable: param.ty.is_nullable,
             });

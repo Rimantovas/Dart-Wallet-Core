@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class TONMessageSigner {
-    TONMessageSigner();
+    final Pointer<TWTONMessageSigner> rawValue;
+
+    TONMessageSigner(this.rawValue);
 
 
 

@@ -1,40 +1,80 @@
 #!/bin/zsh
 
-# Run the Node.js script to add forward declarations
+check_previous_command() {
+  local error_message=$1
+  
+  if [ $? -ne 0 ]; then
+    echo "Error: $error_message"
+    exit 1
+  fi
+}
+
+setup_files() {
+  local source_dir=$1
+  local target_dir=$2
+  
+  echo "Setting up files from $source_dir to $target_dir"
+  cp -r ../../assets/$source_dir $target_dir
+  check_previous_command "Failed to copy files from $source_dir."
+}
+
+cleanup_files() {
+  local dir_to_remove=$1
+  
+  echo "Cleaning up $dir_to_remove"
+  rm -rf $dir_to_remove
+  check_previous_command "Failed to clean up $dir_to_remove."
+}
+
+# Store the base directory
+BASE_DIR=$(pwd)
+
+# Clean up previous generated code
+rm -rf ../../packages/dart_wallet_core_codegen/lib/src/bindings
+rm -rf ../../packages/dart_wallet_core_codegen/lib/src/proto
+rm -rf ../../packages/dart_wallet_core_codegen/lib/src/generated
+rm -rf ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
+
+# Step 1: Generate FFI bindings
+setup_files "include/TrustWalletCore" "../../packages/dart_wallet_core_codegen/include"
+
+# Add forward declarations
 node ./add_structs_to_headers.js
+check_previous_command "Failed to add forward declarations."
 
-# Check if the Node.js script ran successfully
-if [ $? -eq 0 ]; then
-  # Run ffigen if the Node.js script was successful
-  cp -r ../../assets/include ../../packages/dart_wallet_core_codegen/include
-  rm -rf ../../packages/dart_wallet_core_codegen/lib/bindings
-  cd ../../packages/dart_wallet_core_codegen && dart run ffigen
-  rm -rf ../../packages/dart_wallet_core_codegen/include
-else
-  echo "Error: Failed to add forward declarations."
-  exit 1
-fi
+# Run ffigen
+cd ../../packages/dart_wallet_core_codegen 
+dart run ffigen
+check_previous_command "Failed to create C header bindings."
+cd "$BASE_DIR"
 
-# Check if the bindings were generated successfully
-if [ $? -eq 0 ]; then
-  # Run the script to generate protobuf files
-  cp -r ../../assets/proto ../../packages/dart_wallet_core_codegen/proto
-  rm -rf ../../packages/dart_wallet_core_codegen/lib/proto
-  ../../packages/dart_wallet_core_codegen/tools/scripts/proto_gen.sh
-  rm -rf ../../packages/dart_wallet_core_codegen/proto
-else
-  echo "Error: Failed to add create C header bindings."
-  exit 1
-fi
+cleanup_files "../../packages/dart_wallet_core_codegen/include"
 
-# Check if the proto were generated successfully
-if [ $? -eq 0 ]; then
-  # Run rust code generator
-  # cp -r ../../assets/manifest ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
-  # rm -rf ../../packages/dart_wallet_core_codegen/lib/generated
-  cd ../../packages/dart_wallet_core_codegen/tools/codegen-dart && cargo run -- dart
-  # rm -rf ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
-else
-  echo "Error: Failed to generate protobufs."
-  exit 1
-fi
+# Step 2: Generate protobuf files
+setup_files "proto" "../../packages/dart_wallet_core_codegen/proto"
+cd ../../packages/dart_wallet_core_codegen
+./tools/scripts/proto_gen.sh
+check_previous_command "Failed to generate protobufs."
+cd "$BASE_DIR"
+
+cleanup_files "../../packages/dart_wallet_core_codegen/proto"
+
+# Step 3: Generate Rust code
+mkdir -p ../../packages/dart_wallet_core_codegen/tools/include/TrustWalletCore
+setup_files "include/TrustWalletCore" "../../packages/dart_wallet_core_codegen/tools/include"
+mkdir -p ../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest
+cd ../../packages/dart_wallet_core_codegen/tools/codegen-dart
+cargo run -- create-manifest
+check_previous_command "Failed to create manifest."
+cd "$BASE_DIR"
+
+
+cd ../../packages/dart_wallet_core_codegen/tools/codegen-dart
+cargo run -- dart
+check_previous_command "Failed to generate Dart code from Rust."
+cd "$BASE_DIR"
+
+# cleanup_files "../../packages/dart_wallet_core_codegen/tools/include"
+# cleanup_files "../../packages/dart_wallet_core_codegen/tools/codegen-dart/manifest"
+
+echo "Code generation completed successfully!"

@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class MessageSigner {
-    MessageSigner();
+    final Pointer<TWMessageSigner> rawValue;
+
+    MessageSigner(this.rawValue);
 
 
 

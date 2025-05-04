@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class TONWallet {
-    TONWallet();
+    final Pointer<TWTONWallet> rawValue;
+
+    TONWallet(this.rawValue);
 
 
 

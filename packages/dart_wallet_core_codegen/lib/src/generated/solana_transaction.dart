@@ -1,6 +1,8 @@
 part of 'generated.dart';
 class SolanaTransaction {
-    SolanaTransaction();
+    final Pointer<TWSolanaTransaction> rawValue;
+
+    SolanaTransaction(this.rawValue);
 
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly PROTO_DIR="./proto"
-readonly OUT_DIR="./lib/proto"
+readonly OUT_DIR="./lib/src/proto"
 readonly PROTO_FILES="${PROTO_DIR}/*.proto"
 
 # if not install protobuf, install it by "brew install protobuf"
