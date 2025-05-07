@@ -153,7 +153,7 @@ extension StringExtension on String {
     }
   }
 
-  /// Converts the string to bytes
+  /// Converts the string to bytes (utf8)
   Uint8List get stringToBytes {
     return utf8.encode(this);
   }
