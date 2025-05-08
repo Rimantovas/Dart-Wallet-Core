@@ -119,7 +119,7 @@ To keep Dart Wallet Core up to date with the latest Trust Wallet Core features a
    - All `.proto` files from `wallet-core/src/protos` → `assets/proto`
    - The entire `include` directory from `wallet-core/include` → `assets/include`
 
-   This ensures Dart Wallet Core uses the latest protocol definitions and C headers from Trust Wallet Core.
+   This ensures Dart Wallet Core uses the latest protobuf definitions and C headers from Trust Wallet Core.
 
 ## 2. Update Dynamic Libraries
 
