@@ -112,7 +112,7 @@ To keep Dart Wallet Core up to date with the latest Trust Wallet Core features a
    [https://github.com/trustwallet/wallet-core](https://github.com/trustwallet/wallet-core)
 
 2. **Follow the official build/setup instructions:**  
-   (See the official documentation here: [docs](https://developer.trustwallet.com/developer/wallet-core/developing-the-library/building))
+   (See the official documentation [here](https://developer.trustwallet.com/developer/wallet-core/developing-the-library/building))
 
 3. **After building Trust Wallet Core, copy the following:**
 
