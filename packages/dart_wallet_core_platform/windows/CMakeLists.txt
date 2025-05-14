@@ -52,8 +52,15 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE flutter flutter_wrapper_plugin)
 # This list could contain prebuilt libraries, or libraries created by an
 # external build triggered from this build file.
 set(dart_wallet_core_platform_bundled_libraries
-  ""
+  "${CMAKE_CURRENT_SOURCE_DIR}/runner/TrustWalletCore.dll"  # Add your DLL path here
   PARENT_SCOPE
+)
+
+# Add custom command to copy DLL to the build directory
+add_custom_command(TARGET ${PLUGIN_NAME} POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+  "${CMAKE_CURRENT_SOURCE_DIR}/runner/TrustWalletCore.dll"
+  $<TARGET_FILE_DIR:${PLUGIN_NAME}>
 )
 
 # === Tests ===

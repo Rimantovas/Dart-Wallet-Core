@@ -18,9 +18,12 @@ class WalletCore {
       final lib = DynamicLibrary.open(path);
       return lib;
     } else {
-      return Platform.isAndroid
-          ? DynamicLibrary.open("libTrustWalletCore.so")
-          : DynamicLibrary.process();
+      if (Platform.isWindows) {
+        return DynamicLibrary.open("TrustWalletCore.dll");
+      } else if (Platform.isAndroid) {
+        return DynamicLibrary.open("libTrustWalletCore.so");
+      }
+      return DynamicLibrary.process();
     }
   }
 

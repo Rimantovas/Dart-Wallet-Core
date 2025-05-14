@@ -179,4 +179,42 @@ Then upload `build/wallet-core.arr` to `test/libs`
 
 ### Windows
 
-...
+For Windows builds, special considerations are needed due to platform-specific type handling and MSVC requirements:
+
+1. **Type Modifications**
+
+   - Replace C++ types with C primitives in header files
+   - Common replacements include:
+     - `std::string` → `char*`
+     - `std::vector` → C-style arrays
+     - `std::unique_ptr` → raw pointers
+   - This ensures consistent type handling across platforms
+
+2. **CMake Configuration**
+
+   - Modify `CMakeLists.txt` to support MSVC compilation:
+
+   ```cmake
+   if(MSVC)
+     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+     set(BUILD_SHARED_LIBS ON)
+     # Add MSVC-specific compiler flags
+     add_compile_options(/W4 /WX)
+   endif()
+   ```
+
+3. **Build Process**
+
+   ```sh
+   # Using MSVC command prompt
+   mkdir build
+   cd build
+   cmake .. -G "Visual Studio 17 2022" -A x64
+   cmake --build . --config Release
+   ```
+
+4. **Output**
+   - The build will generate a `.dll` file in the `build/Release` directory
+   - Copy the resulting DLL to `packages/dart_wallet_core_platform/windows/runner/TrustWalletCore.dll`
+
+Note: More detailed documentation about Windows-specific modifications and build process will be provided in future updates.
