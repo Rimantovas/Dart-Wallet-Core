@@ -15,7 +15,7 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'Bitcoin.pb.dart' as $6;
-import 'BitcoinV2.pb.dart' as $5;
+import 'BitcoinV2.pb.dart' as $1;
 import 'Common.pbenum.dart' as $0;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -354,7 +354,7 @@ class SigningOutput extends $pb.GeneratedMessage {
     $core.String? transactionId,
     $0.SigningError? error,
     $core.String? errorMessage,
-    $5.SigningOutput? signingResultV2,
+    $1.SigningOutput? signingResultV2,
   }) {
     final $result = create();
     if (transaction != null) {
@@ -387,7 +387,7 @@ class SigningOutput extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'transactionId')
     ..e<$0.SigningError>(4, _omitFieldNames ? '' : 'error', $pb.PbFieldType.OE, defaultOrMaker: $0.SigningError.OK, valueOf: $0.SigningError.valueOf, enumValues: $0.SigningError.values)
     ..aOS(5, _omitFieldNames ? '' : 'errorMessage')
-    ..aOM<$5.SigningOutput>(6, _omitFieldNames ? '' : 'signingResultV2', subBuilder: $5.SigningOutput.create)
+    ..aOM<$1.SigningOutput>(6, _omitFieldNames ? '' : 'signingResultV2', subBuilder: $1.SigningOutput.create)
     ..hasRequiredFields = false
   ;
 
@@ -466,15 +466,15 @@ class SigningOutput extends $pb.GeneratedMessage {
   /// Result of a transaction signing using the Bitcoin 2.0 protocol.
   /// Set if `Bitcoin.Proto.SigningInput.signing_v2` used.
   @$pb.TagNumber(6)
-  $5.SigningOutput get signingResultV2 => $_getN(5);
+  $1.SigningOutput get signingResultV2 => $_getN(5);
   @$pb.TagNumber(6)
-  set signingResultV2($5.SigningOutput v) { $_setField(6, v); }
+  set signingResultV2($1.SigningOutput v) { $_setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasSigningResultV2() => $_has(5);
   @$pb.TagNumber(6)
   void clearSigningResultV2() => $_clearField(6);
   @$pb.TagNumber(6)
-  $5.SigningOutput ensureSigningResultV2() => $_ensure(5);
+  $1.SigningOutput ensureSigningResultV2() => $_ensure(5);
 }
 
 

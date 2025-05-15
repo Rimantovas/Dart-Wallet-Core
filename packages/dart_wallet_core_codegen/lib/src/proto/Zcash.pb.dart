@@ -14,7 +14,7 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'Utxo.pb.dart' as $1;
+import 'Utxo.pb.dart' as $2;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -105,8 +105,8 @@ class Transaction extends $pb.GeneratedMessage {
   factory Transaction({
     $core.int? version,
     $core.int? versionGroupId,
-    $core.Iterable<$1.TransactionInput>? inputs,
-    $core.Iterable<$1.TransactionOutput>? outputs,
+    $core.Iterable<$2.TransactionInput>? inputs,
+    $core.Iterable<$2.TransactionOutput>? outputs,
     $core.int? lockTime,
     $core.int? expiryHeight,
     $fixnum.Int64? saplingValueBalance,
@@ -146,8 +146,8 @@ class Transaction extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Transaction', package: const $pb.PackageName(_omitMessageNames ? '' : 'TW.Zcash.Proto'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'versionGroupId', $pb.PbFieldType.OU3)
-    ..pc<$1.TransactionInput>(3, _omitFieldNames ? '' : 'inputs', $pb.PbFieldType.PM, subBuilder: $1.TransactionInput.create)
-    ..pc<$1.TransactionOutput>(4, _omitFieldNames ? '' : 'outputs', $pb.PbFieldType.PM, subBuilder: $1.TransactionOutput.create)
+    ..pc<$2.TransactionInput>(3, _omitFieldNames ? '' : 'inputs', $pb.PbFieldType.PM, subBuilder: $2.TransactionInput.create)
+    ..pc<$2.TransactionOutput>(4, _omitFieldNames ? '' : 'outputs', $pb.PbFieldType.PM, subBuilder: $2.TransactionOutput.create)
     ..a<$core.int>(5, _omitFieldNames ? '' : 'lockTime', $pb.PbFieldType.OU3)
     ..a<$core.int>(6, _omitFieldNames ? '' : 'expiryHeight', $pb.PbFieldType.OU3)
     ..aInt64(7, _omitFieldNames ? '' : 'saplingValueBalance')
@@ -199,11 +199,11 @@ class Transaction extends $pb.GeneratedMessage {
 
   /// The transaction inputs.
   @$pb.TagNumber(3)
-  $pb.PbList<$1.TransactionInput> get inputs => $_getList(2);
+  $pb.PbList<$2.TransactionInput> get inputs => $_getList(2);
 
   /// The transaction outputs.
   @$pb.TagNumber(4)
-  $pb.PbList<$1.TransactionOutput> get outputs => $_getList(3);
+  $pb.PbList<$2.TransactionOutput> get outputs => $_getList(3);
 
   /// Block height or timestamp indicating at what point transactions can be included in a block.
   /// Zero by default.

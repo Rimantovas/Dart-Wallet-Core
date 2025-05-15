@@ -15,7 +15,7 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'Bitcoin.pbenum.dart';
-import 'BitcoinV2.pb.dart' as $5;
+import 'BitcoinV2.pb.dart' as $1;
 import 'Common.pbenum.dart' as $0;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -616,7 +616,7 @@ class SigningInput extends $pb.GeneratedMessage {
     $core.String? toAddress,
     $core.String? changeAddress,
     $core.Iterable<$core.List<$core.int>>? privateKey,
-    $pb.PbMap<$core.String, $core.List<$core.int>>? scripts,
+    $core.Iterable<$core.MapEntry<$core.String, $core.List<$core.int>>>? scripts,
     $core.Iterable<UnspentTransaction>? utxo,
     $core.bool? useMaxAmount,
     $core.int? coinType,
@@ -628,7 +628,7 @@ class SigningInput extends $pb.GeneratedMessage {
     $core.bool? disableDustFilter,
     $core.int? time,
     $core.bool? zip0317,
-    $5.SigningInput? signingV2,
+    $1.SigningInput? signingV2,
     $fixnum.Int64? fixedDustThreshold,
     OutputIndex? outputOpReturnIndex,
   }) {
@@ -652,7 +652,7 @@ class SigningInput extends $pb.GeneratedMessage {
       $result.privateKey.addAll(privateKey);
     }
     if (scripts != null) {
-      $result.scripts.addAll(scripts);
+      $result.scripts.addEntries(scripts);
     }
     if (utxo != null) {
       $result.utxo.addAll(utxo);
@@ -726,7 +726,7 @@ class SigningInput extends $pb.GeneratedMessage {
     ..aOB(16, _omitFieldNames ? '' : 'disableDustFilter')
     ..a<$core.int>(17, _omitFieldNames ? '' : 'time', $pb.PbFieldType.OU3)
     ..aOB(18, _omitFieldNames ? '' : 'zip0317', protoName: 'zip_0317')
-    ..aOM<$5.SigningInput>(21, _omitFieldNames ? '' : 'signingV2', subBuilder: $5.SigningInput.create)
+    ..aOM<$1.SigningInput>(21, _omitFieldNames ? '' : 'signingV2', subBuilder: $1.SigningInput.create)
     ..aInt64(24, _omitFieldNames ? '' : 'fixedDustThreshold')
     ..aOM<OutputIndex>(26, _omitFieldNames ? '' : 'outputOpReturnIndex', subBuilder: OutputIndex.create)
     ..hasRequiredFields = false
@@ -924,15 +924,15 @@ class SigningInput extends $pb.GeneratedMessage {
   /// If set, uses Bitcoin 2.0 Signing protocol.
   /// As a result, `Bitcoin.Proto.SigningOutput.signing_result_v2` is set.
   @$pb.TagNumber(21)
-  $5.SigningInput get signingV2 => $_getN(18);
+  $1.SigningInput get signingV2 => $_getN(18);
   @$pb.TagNumber(21)
-  set signingV2($5.SigningInput v) { $_setField(21, v); }
+  set signingV2($1.SigningInput v) { $_setField(21, v); }
   @$pb.TagNumber(21)
   $core.bool hasSigningV2() => $_has(18);
   @$pb.TagNumber(21)
   void clearSigningV2() => $_clearField(21);
   @$pb.TagNumber(21)
-  $5.SigningInput ensureSigningV2() => $_ensure(18);
+  $1.SigningInput ensureSigningV2() => $_ensure(18);
 
   /// Use a constant "Dust" threshold.
   @$pb.TagNumber(24)
@@ -971,7 +971,7 @@ class TransactionPlan extends $pb.GeneratedMessage {
     $core.List<$core.int>? outputOpReturn,
     $core.List<$core.int>? preblockhash,
     $fixnum.Int64? preblockheight,
-    $5.TransactionPlan? planningResultV2,
+    $1.TransactionPlan? planningResultV2,
     OutputIndex? outputOpReturnIndex,
   }) {
     final $result = create();
@@ -1028,7 +1028,7 @@ class TransactionPlan extends $pb.GeneratedMessage {
     ..a<$core.List<$core.int>>(8, _omitFieldNames ? '' : 'outputOpReturn', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(9, _omitFieldNames ? '' : 'preblockhash', $pb.PbFieldType.OY)
     ..aInt64(10, _omitFieldNames ? '' : 'preblockheight')
-    ..aOM<$5.TransactionPlan>(12, _omitFieldNames ? '' : 'planningResultV2', subBuilder: $5.TransactionPlan.create)
+    ..aOM<$1.TransactionPlan>(12, _omitFieldNames ? '' : 'planningResultV2', subBuilder: $1.TransactionPlan.create)
     ..aOM<OutputIndex>(14, _omitFieldNames ? '' : 'outputOpReturnIndex', subBuilder: OutputIndex.create)
     ..hasRequiredFields = false
   ;
@@ -1151,15 +1151,15 @@ class TransactionPlan extends $pb.GeneratedMessage {
   /// Result of a transaction planning using the Bitcoin 2.0 protocol.
   /// Set if `Bitcoin.Proto.SigningInput.planning_v2` used.
   @$pb.TagNumber(12)
-  $5.TransactionPlan get planningResultV2 => $_getN(10);
+  $1.TransactionPlan get planningResultV2 => $_getN(10);
   @$pb.TagNumber(12)
-  set planningResultV2($5.TransactionPlan v) { $_setField(12, v); }
+  set planningResultV2($1.TransactionPlan v) { $_setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasPlanningResultV2() => $_has(10);
   @$pb.TagNumber(12)
   void clearPlanningResultV2() => $_clearField(12);
   @$pb.TagNumber(12)
-  $5.TransactionPlan ensurePlanningResultV2() => $_ensure(10);
+  $1.TransactionPlan ensurePlanningResultV2() => $_ensure(10);
 
   /// Optional index of the OP_RETURN output in the transaction.
   /// If not set, OP_RETURN output will be pushed as the latest output.
@@ -1184,7 +1184,7 @@ class SigningOutput extends $pb.GeneratedMessage {
     $core.String? transactionId,
     $0.SigningError? error,
     $core.String? errorMessage,
-    $5.SigningOutput? signingResultV2,
+    $1.SigningOutput? signingResultV2,
   }) {
     final $result = create();
     if (transaction != null) {
@@ -1217,7 +1217,7 @@ class SigningOutput extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'transactionId')
     ..e<$0.SigningError>(4, _omitFieldNames ? '' : 'error', $pb.PbFieldType.OE, defaultOrMaker: $0.SigningError.OK, valueOf: $0.SigningError.valueOf, enumValues: $0.SigningError.values)
     ..aOS(5, _omitFieldNames ? '' : 'errorMessage')
-    ..aOM<$5.SigningOutput>(7, _omitFieldNames ? '' : 'signingResultV2', subBuilder: $5.SigningOutput.create)
+    ..aOM<$1.SigningOutput>(7, _omitFieldNames ? '' : 'signingResultV2', subBuilder: $1.SigningOutput.create)
     ..hasRequiredFields = false
   ;
 
@@ -1297,15 +1297,15 @@ class SigningOutput extends $pb.GeneratedMessage {
   /// Result of a transaction signing using the Bitcoin 2.0 protocol.
   /// Set if `Bitcoin.Proto.SigningInput.signing_v2` used.
   @$pb.TagNumber(7)
-  $5.SigningOutput get signingResultV2 => $_getN(5);
+  $1.SigningOutput get signingResultV2 => $_getN(5);
   @$pb.TagNumber(7)
-  set signingResultV2($5.SigningOutput v) { $_setField(7, v); }
+  set signingResultV2($1.SigningOutput v) { $_setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasSigningResultV2() => $_has(5);
   @$pb.TagNumber(7)
   void clearSigningResultV2() => $_clearField(7);
   @$pb.TagNumber(7)
-  $5.SigningOutput ensureSigningResultV2() => $_ensure(5);
+  $1.SigningOutput ensureSigningResultV2() => $_ensure(5);
 }
 
 /// / Pre-image hash to be used for signing
@@ -1381,7 +1381,7 @@ class PreSigningOutput extends $pb.GeneratedMessage {
     $core.Iterable<HashPublicKey>? hashPublicKeys,
     $0.SigningError? error,
     $core.String? errorMessage,
-    $5.PreSigningOutput? preSigningResultV2,
+    $1.PreSigningOutput? preSigningResultV2,
   }) {
     final $result = create();
     if (hashPublicKeys != null) {
@@ -1406,7 +1406,7 @@ class PreSigningOutput extends $pb.GeneratedMessage {
     ..pc<HashPublicKey>(1, _omitFieldNames ? '' : 'hashPublicKeys', $pb.PbFieldType.PM, subBuilder: HashPublicKey.create)
     ..e<$0.SigningError>(2, _omitFieldNames ? '' : 'error', $pb.PbFieldType.OE, defaultOrMaker: $0.SigningError.OK, valueOf: $0.SigningError.valueOf, enumValues: $0.SigningError.values)
     ..aOS(3, _omitFieldNames ? '' : 'errorMessage')
-    ..aOM<$5.PreSigningOutput>(7, _omitFieldNames ? '' : 'preSigningResultV2', subBuilder: $5.PreSigningOutput.create)
+    ..aOM<$1.PreSigningOutput>(7, _omitFieldNames ? '' : 'preSigningResultV2', subBuilder: $1.PreSigningOutput.create)
     ..hasRequiredFields = false
   ;
 
@@ -1458,15 +1458,15 @@ class PreSigningOutput extends $pb.GeneratedMessage {
   /// Result of a transaction pre-signing using the Bitcoin 2.0 protocol.
   /// Set if `Bitcoin.Proto.SigningInput.signing_v2` used.
   @$pb.TagNumber(7)
-  $5.PreSigningOutput get preSigningResultV2 => $_getN(3);
+  $1.PreSigningOutput get preSigningResultV2 => $_getN(3);
   @$pb.TagNumber(7)
-  set preSigningResultV2($5.PreSigningOutput v) { $_setField(7, v); }
+  set preSigningResultV2($1.PreSigningOutput v) { $_setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasPreSigningResultV2() => $_has(3);
   @$pb.TagNumber(7)
   void clearPreSigningResultV2() => $_clearField(7);
   @$pb.TagNumber(7)
-  $5.PreSigningOutput ensurePreSigningResultV2() => $_ensure(3);
+  $1.PreSigningOutput ensurePreSigningResultV2() => $_ensure(3);
 }
 
 

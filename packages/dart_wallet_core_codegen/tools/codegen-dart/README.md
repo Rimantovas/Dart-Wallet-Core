@@ -1,8 +1,13 @@
-# Execution
+# Dart Wallet Core Bridge Code Generator
+
+This tool generates the bridge code between Dart and the native Trust Wallet Core library. It handles the creation of manifest files and dart code.
+
+## Commands
 
 ```bash
-$ cd codegen-dart
-$ cargo run -- dart
-```
+# Generate Dart bridge code
+cargo run -- dart
 
-Bindings are saved to `bindings/`.
+# Create manifest files
+cargo run -- create-manifest
+```
