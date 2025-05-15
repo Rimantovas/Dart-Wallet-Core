@@ -1,3 +1,4 @@
 **/out/manifest/*
-assets
+# assets
+# test/assets
 .VSCodeCounter
